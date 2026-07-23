@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 10 Best Cheesesteaks in Philadelphia (2026) — PhillyFinder</title>
+<meta name="description" content="From John's Roast Pork to Pat's, Geno's, and Tony Luke's — our ranked guide to the best cheesesteaks in Philadelphia, updated for 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1611;--paper:#f7f2e9;--card:#ffffff;--muted:#6f665a;--line:#e4dccd;
+    --accent:#bf3c25;--accent-dark:#9a2f1c;--gold:#b6892f;
+    --shadow:0 1px 2px rgba(26,22,17,.04),0 8px 30px rgba(26,22,17,.07);--radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Archivo',system-ui,sans-serif;line-height:1.1;font-weight:800;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:820px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:'Inter';font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+
+  .ad{display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px dashed #cbb9a6;border-radius:10px;
+    background:repeating-linear-gradient(45deg,#f0e8da,#f0e8da 10px,#ece2d1 10px,#ece2d1 20px);
+    color:#a3907a;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-align:center}
+  .ad small{font-size:9px;letter-spacing:.1em;margin-top:3px;opacity:.7;font-weight:600}
+  .ad-leaderboard{height:90px}
+  .ad-inline{height:110px;margin:26px 0}
+
+  .topbar{background:var(--ink);color:#f7f2e9;font-size:12.5px}
+  .topbar .wrap{display:flex;align-items:center;justify-content:center;padding:9px 24px;text-align:center}
+  .topbar strong{color:#fff;font-weight:600}
+
+  header.site{position:sticky;top:0;z-index:50;background:rgba(247,242,233,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
+  .brand{font-family:'Archivo';font-weight:900;font-size:23px;letter-spacing:-.03em;display:flex;align-items:center;gap:9px;white-space:nowrap}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:17px;font-weight:900;transform:rotate(-4deg)}
+  .brand b{color:var(--accent)}
+  nav.links{display:flex;gap:28px;align-items:center}
+  nav.links a{font-size:14.5px;font-weight:600;color:var(--ink)}
+  nav.links a:hover{color:var(--accent)}
+  .nav-cta{background:var(--ink);color:#fff!important;padding:9px 16px;border-radius:999px;font-size:13.5px;font-weight:700}
+  .nav-cta:hover{background:var(--accent)}
+  .menu-btn{display:none;background:none;border:0;font-size:24px;cursor:pointer;color:var(--ink)}
+
+  /* Article */
+  .crumbs{font-size:13px;color:var(--muted);padding:26px 0 0}
+  .crumbs a:hover{color:var(--accent)}
+  .art-head{padding:14px 0 8px}
+  .art-head h1{font-size:46px;letter-spacing:-.03em;margin:12px 0 16px}
+  .art-head .dek{font-size:19px;color:var(--muted);max-width:40em}
+  .byline{display:flex;align-items:center;gap:10px;margin-top:20px;font-size:13.5px;color:var(--muted)}
+  .byline .avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(150deg,#c14a34,#7c2417);color:#fff;display:grid;place-items:center;font-family:'Archivo';font-weight:800;font-size:14px}
+  .byline b{color:var(--ink);font-weight:700}
+  .intro{font-size:17px;color:#463f34;margin:28px 0 8px}
+  .intro p{margin-bottom:16px}
+
+  .entry{padding:34px 0;border-top:1px solid var(--line)}
+  .entry:first-of-type{border-top:0}
+  .entry-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+  .entry-head .rank{font-family:'Archivo';font-weight:900;font-size:30px;color:var(--accent);line-height:1;min-width:44px}
+  .entry-head h2{font-size:27px}
+  .entry-meta{display:flex;flex-wrap:wrap;gap:9px;align-items:center;font-size:13.5px;color:var(--muted);margin:4px 0 16px 58px}
+  .entry-meta .tag{background:#efe6d6;color:#6a5c43;font-weight:600;padding:4px 10px;border-radius:999px;font-size:12px}
+  .entry-meta .price{color:var(--gold);font-weight:700}
+  .entry-photo{height:300px;border-radius:var(--radius);margin:0 0 18px;position:relative;display:grid;place-items:center;color:#fff;overflow:hidden}
+  .entry-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.32))}
+  .entry-photo b{position:relative;z-index:2;font-family:'Archivo';font-weight:800;font-size:26px;text-shadow:0 1px 14px rgba(0,0,0,.35);padding:0 20px;text-align:center}
+  .entry-photo .ph-note{position:absolute;bottom:10px;right:12px;z-index:2;font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+  .entry-body{font-size:16px;color:#463f34}
+  .entry-body p{margin-bottom:12px}
+  .signature{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14px;margin-top:4px}
+  .signature b{color:var(--ink)}
+  .addr{font-size:13.5px;color:var(--muted);margin-top:10px}
+
+  .g1{background:linear-gradient(150deg,#c14a34,#7c2417)}
+  .g2{background:linear-gradient(150deg,#8a3b1e,#4a1c0d)}
+  .g3{background:linear-gradient(150deg,#b6892f,#6f4f14)}
+  .g4{background:linear-gradient(150deg,#7a4327,#3f2113)}
+  .g5{background:linear-gradient(150deg,#a34760,#5e2436)}
+  .g6{background:linear-gradient(150deg,#2f4b52,#16292e)}
+
+  .related{background:var(--ink);color:#f7f2e9;border-radius:20px;padding:40px;text-align:center;margin:44px 0}
+  .related .eyebrow{color:var(--gold)}
+  .related h2{color:#fff;font-size:28px;margin:10px 0 18px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:999px;cursor:pointer;border:0;font-family:inherit;background:var(--accent);color:#fff}
+  .btn:hover{background:var(--accent-dark)}
+
+  footer{background:var(--ink);color:#c9beac;margin-top:20px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;padding:56px 0 34px}
+  .foot-grid .brand{color:#fff;margin-bottom:12px}
+  .foot-grid .brand b{color:var(--accent)}
+  footer p.tag{font-size:13.5px;color:#9b917f;max-width:26em}
+  footer h4{font-family:'Inter';font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a8072;margin-bottom:14px;font-weight:700}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  footer ul a{font-size:14px;color:#c9beac}
+  footer ul a:hover{color:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.09);padding:18px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#8a8072}
+
+  @media(max-width:760px){
+    .art-head h1{font-size:34px}
+    nav.links{display:none}
+    .menu-btn{display:block}
+    .entry-head h2{font-size:22px}
+    .entry-head .rank{font-size:24px;min-width:34px}
+    .entry-meta{margin-left:0}
+    .entry-photo{height:210px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap"><span>Updated for 2026 — <strong>the definitive local guide to eating and exploring in Philadelphia</strong></span></div></div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><span class="mark">P</span>Philly<b>Finder</b></a>
+    <nav class="links">
+      <a href="../index.html#restaurants">Restaurants</a>
+      <a href="../index.html#things">Things to Do</a>
+      <a href="../index.html#arts">Arts &amp; Culture</a>
+      <a href="../index.html#neighborhoods">Neighborhoods</a>
+      <a href="../index.html#daytrips">Day Trips</a>
+      <a class="nav-cta" href="../index.html#restaurants">Explore Philly</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<div class="wrap" style="padding-top:14px"><div class="ad ad-leaderboard">Advertisement<small>728 × 90 · Monetag zone</small></div></div>
+
+<div class="narrow">
+  <div class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#restaurants">Restaurants</a> / Best Cheesesteaks</div>
+  <div class="art-head">
+    <span class="eyebrow">The Philly essential</span>
+    <h1>The 10 Best Cheesesteaks in Philadelphia</h1>
+    <p class="dek">Whiz or provolone, wit or witout — here's where to get the city's greatest cheesesteak, from old-school legends to modern upstarts.</p>
+    <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team · Updated July 2026</span></div>
+  </div>
+
+  <div class="intro">
+    <p>No sandwich is more Philadelphia than the cheesesteak — thin-sliced beef griddled with onions, piled onto a long roll, and blanketed in Cheez Whiz or melted provolone. Everyone in this city has an opinion, and the "best" one depends on whether you're after tourist spectacle, connoisseur craft, or a late-night classic.</p>
+    <p>We ate our way across the city to rank the ten that matter most. A quick primer on ordering like a local: "whiz wit" means Cheez Whiz <em>with</em> onions; "provolone witout" swaps the cheese and skips them. Now, the list.</p>
+  </div>
+
+  <div class="ad ad-inline">Advertisement<small>Responsive · Monetag native / display zone</small></div>
+
+  <!-- 1 -->
+  <div class="entry">
+    <div class="entry-head"><span class="rank">1</span><h2>John's Roast Pork</h2></div>
+    <div class="entry-meta"><span class="tag">Cheesesteaks</span><span>Pennsport</span><span class="price">$$</span></div>
+    <div class="entry-photo g1"><b>John's Roast Pork</b><span class="ph-note">Photo</span></div>
+    <div class="entry-body">
+      <p>This James Beard-honored corner shop is widely considered the connoisseur's cheesesteak, built on a crusty seeded roll with sharp provolone that stands up to the juicy, well-seasoned beef. Cash-only and open only during the day, it draws lines of purists who prize balance and quality over hype.</p>
+      <div class="signature">Signature: <b>Cheesesteak with sharp provolone on a seeded roll</b></div>
+      <div class="addr">14 East Snyder Avenue, Philadelphia, PA 19148</div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="entry">
+    <div class="entry-head"><span class="rank">2</span><h2>Angelo's Pizzeria</h2></div>
+    <div class="entry-meta"><span class="tag">Cheesesteaks</span><span>Bella Vista</span><span class="price">$$</span></div>
+    <div class="entry-photo g2"><b>Angelo's Pizzeria</b><span class="ph-note">Photo</span></div>
+    <div class="entry-body">
+      <p>A perpetually packed South Philly pizzeria whose house-baked bread earns it a spot atop many cheesesteak rankings. Expect long waits and a cash-only counter turning out some of the best-constructed steaks in the city, with a chew and flavor that keep the crowds coming back.</p>
+      <div class="signature">Signature: <b>Cheesesteak on a house-baked seeded roll</b></div>
+      <div class="addr">736 South 9th Street, Philadelphia, PA 19147</div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="entry">
+    <div class="entry-head"><span class="rank">3</span><h2>Pat's King of Steaks</h2></div>
+    <div class="entry-meta"><span class="tag">Cheesesteaks</span><span>Passyunk Square</span><span class="price">$</span></div>
+    <div class="entry-photo g3"><b>Pat's King of Steaks</b><span class="ph-note">Photo</span></div>
+    <div class="entry-body">
+      <p>The self-proclaimed birthplace of the cheesesteak, open around the clock at its famous South Philly corner. It's as much a tourist landmark and late-night ritual as a meal, facing off with Geno's across the street in the city's most iconic sandwich rivalry.</p>
+      <div class="signature">Signature: <b>Classic cheesesteak, "whiz wit"</b></div>
+      <div class="addr">1237 East Passyunk Avenue, Philadelphia, PA 19147</div>
+    </div>
+  </div>
+
+  <div class="ad ad-inline">Advertisement<small>Responsive · Monetag native / display zone</small></div>
+
+  <!-- 4 -->
+  <div class="entry">
+    <div class="entry-head"><span class="rank">4</span><h2>Geno's Steaks</h2></div>
+    <div class="entry-meta"><span class="tag">Cheesesteaks</span><span>Passyunk Square</span><span class="price">$</span></div>
+    <div class="entry-photo g4"><b>Geno's Steaks</b><span class="ph-note">Photo</span></div>
+    <div class="entry-body">
+      <p>The neon-drenched rival that has anchored the opposite corner from Pat's for decades. Its brightly lit 24-hour stand is a bucket-list stop for visitors chasing the classic Philly experience, and the friendly Pat's-vs-Geno's debate is half the fun of the trip.</p>
+      <div class="signature">Signature: <b>Cheesesteak with provolone</b></div>
+      <div class="addr">1219 South 9th Street, Philadelphia, PA 19147</div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="entry">
+    <div class="entry-head"><span class="rank">5</span><h2>Tony Luke's</h2></div>
+    <div class="entry-meta"><span class="tag">Cheesesteaks</span><span>South Philadelphia</span><span class="price">$$</span></div>
+    <div class="entry-photo g5"><b>Tony Luke's</b><span class="ph-note">Photo</span></div>
+    <div class="entry-body">
+      <p>A South Philly legend near the stadiums, famous for both its cheesesteaks and its iconic roast pork Italian with broccoli rabe and sharp provolone. The bustling walk-up counter is a game-day and late-night institution that locals defend fiercely.</p>
+      <div class="signature">Signature: <b>Cheesesteak — and the roast pork Italian</b></div>
+      <div class="addr">39 East Oregon Avenue, Philadelphia, PA 19148</div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="entry">
+    <div class="entry-head"><span class="rank">6</span><h2>Dalessandro's Steaks</h2></div>
+    <div class="entry-meta"><span class="tag">Cheesesteaks</span><span>Roxborough</span><span class="price">$$</span></div>
+    <div class="entry-photo g6"><b>Dalessandro's Steaks</b><span class="ph-note">Photo</span></div>
+    <div class="entry-body">
+      <p>A Roxborough institution known for finely chopped, juicy meat piled high on a soft roll. Its classic whiz-and-onions steak is a benchmark for locals across the city's northwest, and the cozy neighborhood setting beats any tourist line.</p>
+      <div class="signature">Signature: <b>Cheesesteak, "whiz wit"</b></div>
+      <div class="addr">600 Wendover Street, Philadelphia, PA 19128</div>
+    </div>
+  </div>
+
+  <div class="ad ad-inline">Advertisement<small>Responsive · Monetag native / display zone</small></div>
+
+  <!-- 7 -->
+  <div class="entry">
+    <div class="entry-head"><span class="rank">7</span><h2>Woodrow's Sandwich Shop</h2></div>
+    <div class="entry-meta"><span class="tag">Cheesesteaks</span><span>Bella Vista</span><span class="price">$$</span></div>
+    <div class="entry-photo g1"><b>Woodrow's Sandwich Shop</b><span class="ph-note">Photo</span></div>
+    <div class="entry-body">
+      <p>A modern take on the form, using shaved rib eye and a house-made truffled cheese whiz that has become a cult favorite. The upscale twist makes it the go-to for anyone wanting something a step beyond the traditional sandwich.</p>
+      <div class="signature">Signature: <b>Cheesesteak with house truffled Whiz</b></div>
+      <div class="addr">630 South Street, Philadelphia, PA 19147</div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="entry">
+    <div class="entry-head"><span class="rank">8</span><h2>Joe's Steaks + Soda Shop</h2></div>
+    <div class="entry-meta"><span class="tag">Cheesesteaks</span><span>Fishtown</span><span class="price">$</span></div>
+    <div class="entry-photo g2"><b>Joe's Steaks + Soda Shop</b><span class="ph-note">Photo</span></div>
+    <div class="entry-body">
+      <p>A retro shop turning out griddled steaks from a recipe that's barely changed in more than 60 years. The old-school soda-fountain milkshakes make it a fun, family-friendly Fishtown stop that pairs nostalgia with a genuinely great sandwich.</p>
+      <div class="signature">Signature: <b>Cheesesteak with a milkshake</b></div>
+      <div class="addr">1 West Girard Avenue, Philadelphia, PA 19123</div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="entry">
+    <div class="entry-head"><span class="rank">9</span><h2>Jim's South St.</h2></div>
+    <div class="entry-meta"><span class="tag">Cheesesteaks</span><span>South Street</span><span class="price">$$</span></div>
+    <div class="entry-photo g4"><b>Jim's South St.</b><span class="ph-note">Photo</span></div>
+    <div class="entry-body">
+      <p>A South Street icon that reopened after a major fire and is once again griddling its beloved steaks in a rebuilt space. The aroma pouring onto the sidewalk still pulls in a steady line of locals and tourists at all hours.</p>
+      <div class="signature">Signature: <b>Cheesesteak, "whiz wit"</b></div>
+      <div class="addr">400 South Street, Philadelphia, PA 19147</div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="entry">
+    <div class="entry-head"><span class="rank">10</span><h2>Cleavers</h2></div>
+    <div class="entry-meta"><span class="tag">Cheesesteaks</span><span>Center City</span><span class="price">$$</span></div>
+    <div class="entry-photo g5"><b>Cleavers</b><span class="ph-note">Photo</span></div>
+    <div class="entry-body">
+      <p>A sleek Center City counter that has become a modern go-to, favoring quality beef and gooey Cooper Sharp cheese. Its polished, quick-service format suits the downtown lunch crowd and proves a great steak doesn't require a trip to South Philly.</p>
+      <div class="signature">Signature: <b>Cooper Sharp cheesesteak</b></div>
+      <div class="addr">108 South 18th Street, Philadelphia, PA 19103</div>
+    </div>
+  </div>
+
+  <div class="related">
+    <span class="eyebrow">Keep exploring</span>
+    <h2>The 25 Best Restaurants in Philadelphia</h2>
+    <a class="btn" href="best-restaurants-philadelphia.html">See the full guide →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="../index.html">Philly<b>Finder</b></a>
+        <p class="tag">Your independent, locally-curated guide to the best restaurants, things to do, and neighborhoods in Philadelphia.</p>
+      </div>
+      <div><h4>Eat</h4><ul>
+        <li><a href="best-restaurants-philadelphia.html">Best Restaurants</a></li>
+        <li><a href="best-cheesesteaks-philadelphia.html">Best Cheesesteaks</a></li>
+        <li><a href="../index.html#restaurants">By Cuisine</a></li>
+        <li><a href="../index.html#neighborhoods">By Neighborhood</a></li></ul></div>
+      <div><h4>Explore</h4><ul>
+        <li><a href="../index.html#things">Things to Do</a></li>
+        <li><a href="../index.html#arts">Museums</a></li>
+        <li><a href="../index.html#things">Parks</a></li>
+        <li><a href="../index.html#daytrips">Day Trips</a></li></ul></div>
+      <div><h4>About</h4><ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Advertise</a></li>
+        <li><a href="#">Privacy</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 PhillyFinder. Made in Philadelphia.</span>
+      <span>Not affiliated with the City of Philadelphia or Visit Philadelphia.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
