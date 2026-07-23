@@ -20,6 +20,40 @@ parks = load("parks.json")
 museums = load("museums.json")
 venues = load("arts-venues.json")
 daytrips = load("day-trips.json")
+HEROES = load("img-heroes.json")
+LANDMARKS = load("img-landmarks.json")
+CUISINES = load("img-cuisines.json")
+
+def cuisine_bucket(c):
+    c = (c or "").lower()
+    pairs = [
+      ("cheesesteak","Cheesesteaks"),("pizza","Pizza"),("ramen","Ramen"),
+      ("sushi","Japanese"),("japanese","Japanese"),("sichuan","Chinese"),("dim sum","Chinese"),
+      ("chinese","Chinese"),("modern asian","Chinese"),("thai","Thai"),("vietnam","Vietnamese"),
+      ("korean","Korean"),("mexican","Mexican"),("filipino","Filipino"),("cambodian","Cambodian"),
+      ("israeli","Israeli"),("lebanese","Lebanese"),("mediterranean","Lebanese"),("greek","Greek"),
+      ("turkish","Turkish"),("armenian","Armenian"),("french","French"),("spanish","Spanish"),
+      ("cuban","Cuban"),("british","British"),("steakhouse","Steakhouse"),("steak","Steakhouse"),
+      ("seafood","Seafood"),("vegan","Vegan"),("southern","Southern"),("african","Southern"),
+      ("brew","Brewpub"),("beer garden","Brewpub"),("portuguese","Portuguese"),
+      ("bakery","Bakery"),("new american","New American"),("brunch","American"),("diner","American"),
+      ("burger","American"),("gastropub","American"),("wine bar","American"),("sandwich","American"),
+      ("italian","Italian"),("american","American"),
+    ]
+    for k, v in pairs:
+        if k in c:
+            return v
+    return "New American"
+
+def item_image(item, idx):
+    name = item.get("name", "")
+    if LANDMARKS.get(name):
+        return LANDMARKS[name]
+    if item.get("cuisine"):
+        pool = CUISINES.get(cuisine_bucket(item["cuisine"]))
+        if pool:
+            return pool[(idx - 1) % len(pool)]
+    return None
 
 CSS = """
   :root{--ink:#1a1611;--paper:#f7f2e9;--card:#ffffff;--muted:#6f665a;--line:#e4dccd;
@@ -124,6 +158,23 @@ GRAD_CSS = """
   .g4{background:linear-gradient(150deg,#6b5b95,#3a2f54)}
   .g5{background:linear-gradient(150deg,#3f7360,#1f3a30)}
   .g6{background:linear-gradient(150deg,#a34760,#5e2436)}
+  .entry-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .entry-photo::after{z-index:1}
+  .pagehero{position:relative;background-color:var(--ink);background-size:cover;background-position:center;color:#fff;border-bottom:1px solid var(--line)}
+  .pagehero .narrow{padding:22px 24px 42px}
+  .pagehero .crumbs{color:rgba(255,255,255,.8);padding:0}
+  .pagehero .crumbs a{color:rgba(255,255,255,.85)}
+  .pagehero .crumbs a:hover{color:#fff}
+  .pagehero .eyebrow{color:#fff}
+  .pagehero .art-head{padding:12px 0 0}
+  .pagehero .art-head h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+  .pagehero .art-head .dek{color:rgba(255,255,255,.92)}
+  .pagehero .byline{color:rgba(255,255,255,.82)}
+  .pagehero .byline b{color:#fff}
+  .hubcard .top{position:relative;overflow:hidden}
+  .hubcard .top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hubcard .top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.5));z-index:1}
+  .hubcard .top span{position:relative;z-index:2}
 """
 
 NAV = """
@@ -171,6 +222,7 @@ FOOTER = """
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 PhillyFinder. Made in Philadelphia.</span>
+      <span>Photos via Unsplash, Pexels &amp; Wikimedia Commons.</span>
       <span>Not affiliated with the City of Philadelphia or Visit Philadelphia.</span>
     </div>
   </div>
@@ -218,11 +270,14 @@ def entry_html(i, item):
     tagline = f'<p class="tagline">{esc(highlight)}</p>' if highlight else ""
     sig = f'<div class="signature"><em>Signature</em>&nbsp; <b>{esc(signature)}</b></div>' if signature else ""
     addr = f'<div class="addr"><em>Address:</em> {esc(item["address"])}</div>' if item.get("address") else ""
+    img = item_image(item, i)
+    imgtag = f'<img src="{img}" alt="{esc(item["name"])}" loading="lazy" onerror="this.style.display=&#39;none&#39;">' if img else ""
+    phnote = "" if img else '<span class="ph-note">Photo</span>'
     return f'''  <div class="entry">
     <div class="entry-head"><span class="rank">{i}</span><h2>{esc(item["name"])}</h2></div>
     {tagline}
     <div class="entry-meta">{"".join(meta)}</div>
-    <div class="entry-photo {g}"><b>{esc(item["name"])}</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo {g}">{imgtag}<b>{esc(item["name"])}</b>{phnote}</div>
     <div class="entry-body"><p>{esc(item["description"])}</p>{sig}{addr}</div>
   </div>'''
 
@@ -235,16 +290,23 @@ def render_listicle(cfg, items):
     intro = "".join(f"<p>{esc(p)}</p>" for p in cfg["intro"])
     rel = cfg["related"]
     css = CSS + GRAD_CSS
+    hero_url = HEROES.get(cfg.get("hero") or "")
+    hero_style = (f"background-image:linear-gradient(rgba(20,16,12,.58),rgba(20,16,12,.72)), url('{hero_url}')"
+                  if hero_url else "")
     return HEAD.format(title=esc(cfg["title"]), meta=esc(cfg["meta"]), css=css) + f'''{NAV}
+<div class="pagehero" style="{hero_style}">
+  <div class="narrow">
+    {crumbs_html(cfg["crumbs"])}
+    <div class="art-head">
+      <span class="eyebrow">{esc(cfg["eyebrow"])}</span>
+      <h1>{esc(cfg["h1"])}</h1>
+      <p class="dek">{esc(cfg["dek"])}</p>
+      <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team &middot; Updated July 2026</span></div>
+    </div>
+  </div>
+</div>
 {AD_LEAD}
 <div class="narrow">
-  {crumbs_html(cfg["crumbs"])}
-  <div class="art-head">
-    <span class="eyebrow">{esc(cfg["eyebrow"])}</span>
-    <h1>{esc(cfg["h1"])}</h1>
-    <p class="dek">{esc(cfg["dek"])}</p>
-    <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team &middot; Updated July 2026</span></div>
-  </div>
   <div class="intro">{intro}</div>
   {AD_INLINE}
 {chr(10).join(entries)}
@@ -346,8 +408,19 @@ PAGES = [
     "related":("The Best Things to Do in Philadelphia","/things-to-do/best-things-to-do-philadelphia.html","Back to the city")}),
 ]
 
+HERO_MAP = {
+  "restaurants/best-restaurants-philadelphia.html":"restaurants",
+  "restaurants/best-cheesesteaks-philadelphia.html":"cheesesteaks",
+  "neighborhoods/best-restaurants-fishtown.html":"hood-fishtown",
+  "things-to-do/best-things-to-do-philadelphia.html":"things-to-do",
+  "things-to-do/best-parks-philadelphia.html":"parks",
+  "arts-culture/best-museums-philadelphia.html":"museums",
+  "arts-culture/theater-and-live-music-philadelphia.html":"theater-music",
+  "day-trips/best-day-trips-from-philadelphia.html":"day-trips",
+}
 print("Building listicle pages...")
 for items, out, cfg in PAGES:
+    cfg["hero"] = HERO_MAP.get(out)
     write(out, render_listicle(cfg, items))
 
 NEIGHBORHOODS = [
@@ -380,6 +453,7 @@ print("Building neighborhood pages...")
 for name, slug, dfile, dek, introline in NEIGHBORHOODS:
     n_items = load(dfile)
     n_cfg = {
+      "hero": f"hood-{slug}",
       "title": f"The Best Restaurants in {name}, Philadelphia (2026) - PhillyFinder",
       "meta": f"A curated, updated 2026 guide to the best restaurants in {name}, Philadelphia - where to eat and what to order.",
       "eyebrow": "Neighborhood guide",
@@ -403,18 +477,28 @@ HOODS = [
   ("University City","g5","Eclectic dining around Penn and Drexel.","/neighborhoods/best-restaurants-university-city.html"),
   ("Bella Vista","g2","Italian Market icons and modern Mexican.","/neighborhoods/best-restaurants-bella-vista.html"),
 ]
-hub_cards = "".join(
-  f'''<a class="hubcard" href="{href}"><div class="top {g}">{esc(name)}</div><div class="bot"><p>{esc(desc)}</p><span class="go">Explore &rarr;</span></div></a>'''
-  for name, g, desc, href in HOODS)
+def _hub_card(name, g, desc, href):
+    slug = href.split("best-restaurants-")[1].replace(".html", "") if "best-restaurants-" in href else ""
+    himg = HEROES.get("hood-" + slug)
+    imgtag = f'<img src="{himg}" alt="{esc(name)}" loading="lazy" onerror="this.style.display=&#39;none&#39;">' if himg else ""
+    return f'''<a class="hubcard" href="{href}"><div class="top {g}">{imgtag}<span>{esc(name)}</span></div><div class="bot"><p>{esc(desc)}</p><span class="go">Explore &rarr;</span></div></a>'''
+hub_cards = "".join(_hub_card(*h) for h in HOODS)
+hub_hero = HEROES.get("neighborhoods")
+hub_hero_style = (f"background-image:linear-gradient(rgba(20,16,12,.58),rgba(20,16,12,.72)), url('{hub_hero}')"
+                  if hub_hero else "")
 hub_body = HEAD.format(
-    title="Philadelphia Neighborhoods Guide — PhillyFinder",
+    title="Philadelphia Neighborhoods Guide - PhillyFinder",
     meta="A guide to Philadelphia's neighborhoods, from buzzy Fishtown to historic Old City and the Italian Market of South Philly.",
     css=CSS + GRAD_CSS) + f'''{NAV}
+<div class="pagehero" style="{hub_hero_style}">
+  <div class="narrow">
+    {crumbs_html([("Home","/"),("Neighborhoods",None)])}
+    <div class="art-head"><span class="eyebrow">Explore by area</span><h1>Philadelphia Neighborhoods</h1>
+    <p class="dek">Every neighborhood has its own personality, and its own best places to eat and explore. Start here.</p></div>
+  </div>
+</div>
 {AD_LEAD}
 <div class="wrap">
-  {crumbs_html([("Home","/"),("Neighborhoods",None)])}
-  <div class="art-head"><span class="eyebrow">Explore by area</span><h1>Philadelphia Neighborhoods</h1>
-  <p class="dek">Every neighborhood has its own personality, and its own best places to eat and explore. Start here.</p></div>
   <div class="hubgrid">{hub_cards}</div>
   {AD_INLINE}
 </div>

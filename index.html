@@ -76,7 +76,8 @@
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .16s ease,box-shadow .2s ease}
   .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
   .card .photo{height:176px;position:relative;display:grid;place-items:center;color:#fff}
-  .card .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.28))}
+  .card .photo::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.28))}
+  .card .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
   .card .photo .cuisine{position:absolute;top:12px;left:12px;z-index:2;background:rgba(26,22,17,.72);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;backdrop-filter:blur(3px)}
   .card .photo .rank{position:absolute;top:12px;right:12px;z-index:2;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--ink);font-family:'Archivo';font-weight:800;font-size:14px;display:grid;place-items:center;box-shadow:var(--shadow)}
   .card .photo b{position:relative;z-index:2;font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-.01em;text-shadow:0 1px 12px rgba(0,0,0,.3);padding:0 14px;text-align:center}
@@ -215,37 +216,37 @@
     </div>
     <div class="grid">
       <a class="card" href="/restaurants/best-restaurants-philadelphia.html">
-        <div class="photo g1"><span class="cuisine">Thai</span><span class="rank">1</span><b>Kalaya</b></div>
+        <div class="photo g1"><img src="https://images.pexels.com/photos/12481161/pexels-photo-12481161.jpeg" alt="Kalaya" loading="lazy" onerror="this.style.display='none'"><span class="cuisine">Thai</span><span class="rank">1</span><b>Kalaya</b></div>
         <div class="body"><h3>Kalaya</h3>
           <div class="meta"><span>Fishtown</span><span class="dot"></span><span class="price">$$$</span></div>
           <p>A James Beard-winning Southern Thai powerhouse serving bold, layered curries and seafood in a celebratory Fishtown room.</p>
           <span class="foot">Read more →</span></div></a>
       <a class="card" href="/restaurants/best-restaurants-philadelphia.html">
-        <div class="photo g2"><span class="cuisine">Israeli</span><span class="rank">2</span><b>Zahav</b></div>
+        <div class="photo g2"><img src="https://images.pexels.com/photos/6419570/pexels-photo-6419570.jpeg" alt="Zahav" loading="lazy" onerror="this.style.display='none'"><span class="cuisine">Israeli</span><span class="rank">2</span><b>Zahav</b></div>
         <div class="body"><h3>Zahav</h3>
           <div class="meta"><span>Society Hill</span><span class="dot"></span><span class="price">$$$</span></div>
           <p>Michael Solomonov's landmark Israeli restaurant — silky hummus, wood-fire grilling, and a meal worth planning a trip around.</p>
           <span class="foot">Read more →</span></div></a>
       <a class="card" href="/restaurants/best-restaurants-philadelphia.html">
-        <div class="photo g3"><span class="cuisine">Italian</span><span class="rank">3</span><b>Vetri Cucina</b></div>
+        <div class="photo g3"><img src="https://images.pexels.com/photos/12720645/pexels-photo-12720645.jpeg" alt="Vetri Cucina" loading="lazy" onerror="this.style.display='none'"><span class="cuisine">Italian</span><span class="rank">3</span><b>Vetri Cucina</b></div>
         <div class="body"><h3>Vetri Cucina</h3>
           <div class="meta"><span>Midtown Village</span><span class="dot"></span><span class="price">$$$$</span></div>
           <p>Marc Vetri's temple to Italian fine dining still delivers a flawless, detail-obsessed tasting experience decades in.</p>
           <span class="foot">Read more →</span></div></a>
       <a class="card" href="/restaurants/best-restaurants-philadelphia.html">
-        <div class="photo g4"><span class="cuisine">New American</span><span class="rank">4</span><b>Friday Saturday Sunday</b></div>
+        <div class="photo g4"><img src="https://images.pexels.com/photos/33033799/pexels-photo-33033799/free-photo-of-elegant-fine-dining-dish-with-grilled-vegetables.jpeg" alt="Friday Saturday Sunday" loading="lazy" onerror="this.style.display='none'"><span class="cuisine">New American</span><span class="rank">4</span><b>Friday Saturday Sunday</b></div>
         <div class="body"><h3>Friday Saturday Sunday</h3>
           <div class="meta"><span>Rittenhouse</span><span class="dot"></span><span class="price">$$$$</span></div>
           <p>A Michelin-starred townhouse restaurant known for technical, seasonal, deeply personal contemporary cooking.</p>
           <span class="foot">Read more →</span></div></a>
       <a class="card" href="/restaurants/best-restaurants-philadelphia.html">
-        <div class="photo g5"><span class="cuisine">Cambodian</span><span class="rank">5</span><b>Mawn</b></div>
+        <div class="photo g5"><img src="https://images.pexels.com/photos/37205641/pexels-photo-37205641/free-photo-of-authentic-indonesian-cuisine-spread-in-jakarta.jpeg" alt="Mawn" loading="lazy" onerror="this.style.display='none'"><span class="cuisine">Cambodian</span><span class="rank">5</span><b>Mawn</b></div>
         <div class="body"><h3>Mawn</h3>
           <div class="meta"><span>Bella Vista</span><span class="dot"></span><span class="price">$$$</span></div>
           <p>A tiny 32-seat BYO serving modern Cambodian cooking with the energy of a nightly celebration.</p>
           <span class="foot">Read more →</span></div></a>
       <a class="card" href="/restaurants/best-restaurants-philadelphia.html">
-        <div class="photo g6"><span class="cuisine">Japanese</span><span class="rank">6</span><b>Royal Sushi</b></div>
+        <div class="photo g6"><img src="https://images.pexels.com/photos/36317034/pexels-photo-36317034.jpeg" alt="Royal Sushi" loading="lazy" onerror="this.style.display='none'"><span class="cuisine">Japanese</span><span class="rank">6</span><b>Royal Sushi</b></div>
         <div class="body"><h3>Royal Sushi &amp; Izakaya</h3>
           <div class="meta"><span>Queen Village</span><span class="dot"></span><span class="price">$$$$</span></div>
           <p>A hidden sushi counter behind a bustling izakaya, serving one of the city's finest omakase experiences.</p>
@@ -340,6 +341,7 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 PhillyFinder. Made in Philadelphia.</span>
+      <span>Photos via Unsplash, Pexels &amp; Wikimedia Commons.</span>
       <span>Not affiliated with the City of Philadelphia or Visit Philadelphia.</span>
     </div>
   </div>

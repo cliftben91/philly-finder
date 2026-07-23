@@ -108,6 +108,23 @@
   .g4{background:linear-gradient(150deg,#6b5b95,#3a2f54)}
   .g5{background:linear-gradient(150deg,#3f7360,#1f3a30)}
   .g6{background:linear-gradient(150deg,#a34760,#5e2436)}
+  .entry-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .entry-photo::after{z-index:1}
+  .pagehero{position:relative;background-color:var(--ink);background-size:cover;background-position:center;color:#fff;border-bottom:1px solid var(--line)}
+  .pagehero .narrow{padding:22px 24px 42px}
+  .pagehero .crumbs{color:rgba(255,255,255,.8);padding:0}
+  .pagehero .crumbs a{color:rgba(255,255,255,.85)}
+  .pagehero .crumbs a:hover{color:#fff}
+  .pagehero .eyebrow{color:#fff}
+  .pagehero .art-head{padding:12px 0 0}
+  .pagehero .art-head h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+  .pagehero .art-head .dek{color:rgba(255,255,255,.92)}
+  .pagehero .byline{color:rgba(255,255,255,.82)}
+  .pagehero .byline b{color:#fff}
+  .hubcard .top{position:relative;overflow:hidden}
+  .hubcard .top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hubcard .top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.5));z-index:1}
+  .hubcard .top span{position:relative;z-index:2}
 </style>
 </head>
 <body>
@@ -128,50 +145,54 @@
   </div>
 </header>
 
+<div class="pagehero" style="background-image:linear-gradient(rgba(20,16,12,.58),rgba(20,16,12,.72)), url('https://images.unsplash.com/photo-1710700596716-7ba6191034d5?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0')">
+  <div class="narrow">
+    <div class="crumbs"><a href="/">Home</a> / <a href="/neighborhoods/">Neighborhoods</a> / East Passyunk</div>
+    <div class="art-head">
+      <span class="eyebrow">Neighborhood guide</span>
+      <h1>The Best Restaurants in East Passyunk</h1>
+      <p class="dek">South Philly's foodie playground: a restaurant row of Filipino, Italian, and inventive BYOs.</p>
+      <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team &middot; Updated July 2026</span></div>
+    </div>
+  </div>
+</div>
 <div class="wrap" style="padding-top:14px"><div class="ad ad-leaderboard">Advertisement<small>728 &times; 90 &middot; Monetag zone</small></div></div>
 <div class="narrow">
-  <div class="crumbs"><a href="/">Home</a> / <a href="/neighborhoods/">Neighborhoods</a> / East Passyunk</div>
-  <div class="art-head">
-    <span class="eyebrow">Neighborhood guide</span>
-    <h1>The Best Restaurants in East Passyunk</h1>
-    <p class="dek">South Philly's foodie playground: a restaurant row of Filipino, Italian, and inventive BYOs.</p>
-    <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team &middot; Updated July 2026</span></div>
-  </div>
   <div class="intro"><p>Few streets in Philadelphia pack more great restaurants per block than East Passyunk Avenue, a South Philly strip that runs from century-old Italian to award-winning Filipino and Vietnamese.</p><p>Here are the best restaurants in East Passyunk right now.</p></div>
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
   <div class="entry">
     <div class="entry-head"><span class="rank">1</span><h2>Perla</h2></div>
     
     <div class="entry-meta"><span class="tag">Filipino</span><span>East Passyunk</span><span class="price">$$$</span></div>
-    <div class="entry-photo g1"><b>Perla</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g1"><img src="https://images.pexels.com/photos/20089299/pexels-photo-20089299/free-photo-of-fish-and-salads-on-table.jpeg" alt="Perla" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Perla</b></div>
     <div class="entry-body"><p>Chef Lou Boquila turns the flavors of the Philippines into a refined, celebratory dining experience just off the Avenue. Rich, garlicky roast pork and bright, vinegary sides anchor a menu that helped put modern Filipino cooking on Philly's map.</p><div class="signature"><em>Signature</em>&nbsp; <b>Lechon (crispy whole roast pork)</b></div><div class="addr"><em>Address:</em> 1535 S 11th St, Philadelphia, PA 19147</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">2</span><h2>The Dutch</h2></div>
     
     <div class="entry-meta"><span class="tag">American</span><span>East Passyunk</span><span class="price">$$</span></div>
-    <div class="entry-photo g2"><b>The Dutch</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g2"><img src="https://images.pexels.com/photos/2272037/pexels-photo-2272037.jpeg" alt="The Dutch" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>The Dutch</b></div>
     <div class="entry-body"><p>This sunny corner spot has built a devoted following for its all-day brunch and comfort-driven American plates. Weekends bring long waits for pillowy French toast and hearty egg dishes served in a cheerful, casual room.</p><div class="signature"><em>Signature</em>&nbsp; <b>Challah French toast</b></div><div class="addr"><em>Address:</em> 1537 S 11th St, Philadelphia, PA 19147</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">3</span><h2>River Twice</h2></div>
     
     <div class="entry-meta"><span class="tag">New American</span><span>East Passyunk</span><span class="price">$$$$</span></div>
-    <div class="entry-photo g3"><b>River Twice</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g3"><img src="https://images.pexels.com/photos/28705621/pexels-photo-28705621/free-photo-of-gourmet-fine-dining-plate-with-sauce-and-herbs.jpeg" alt="River Twice" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>River Twice</b></div>
     <div class="entry-body"><p>Chef Randy Rucker runs an intimate, ever-changing tasting menu built around hyper-seasonal local ingredients and live-fire technique. The result is one of the neighborhood's most ambitious and creative fine-dining destinations.</p><div class="signature"><em>Signature</em>&nbsp; <b>Chef's tasting menu</b></div><div class="addr"><em>Address:</em> 1601 E Passyunk Ave, Philadelphia, PA 19148</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">4</span><h2>Townsend</h2></div>
     
     <div class="entry-meta"><span class="tag">French</span><span>East Passyunk</span><span class="price">$$$$</span></div>
-    <div class="entry-photo g4"><b>Townsend</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g4"><img src="https://images.pexels.com/photos/32505232/pexels-photo-32505232.jpeg?cs=srgb&fm=jpg" alt="Townsend" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Townsend</b></div>
     <div class="entry-body"><p>Chef Townsend Wentz delivers polished, classic French cooking in an elegant white-tablecloth setting on the Avenue. It remains a go-to for special occasions and one of South Philly's most accomplished upscale kitchens.</p><div class="addr"><em>Address:</em> 1623 E Passyunk Ave, Philadelphia, PA 19148</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">5</span><h2>Mr. Martino's Trattoria</h2></div>
     
     <div class="entry-meta"><span class="tag">Italian</span><span>East Passyunk</span><span class="price">$$</span></div>
-    <div class="entry-photo g5"><b>Mr. Martino's Trattoria</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g5"><img src="https://images.unsplash.com/photo-1579684947550-22e945225d9a?fm=jpg&q=60&w=2000&auto=format&fit=crop" alt="Mr. Martino's Trattoria" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Mr. Martino's Trattoria</b></div>
     <div class="entry-body"><p>A charming, old-school South Philly trattoria open only a few nights a week, serving homemade pasta in a nostalgic, dimly lit room. The BYOB format and vintage feel make it a beloved throwback among locals.</p><div class="signature"><em>Signature</em>&nbsp; <b>Homemade pasta</b></div><div class="addr"><em>Address:</em> 1646 E Passyunk Ave, Philadelphia, PA 19148</div></div>
   </div>
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
@@ -179,35 +200,35 @@
     <div class="entry-head"><span class="rank">6</span><h2>Pizzata Pizzeria</h2></div>
     
     <div class="entry-meta"><span class="tag">Pizza</span><span>East Passyunk</span><span class="price">$$</span></div>
-    <div class="entry-photo g6"><b>Pizzata Pizzeria</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g6"><img src="https://images.unsplash.com/photo-1682264788192-9abdec90c425?fm=jpg&q=60&w=2000&auto=format&fit=crop" alt="Pizzata Pizzeria" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Pizzata Pizzeria</b></div>
     <div class="entry-body"><p>This lively pizzeria fires up authentic Neapolitan-style pies with blistered, airy crusts and pairs them with a deep Italian beer list. It's a relaxed, family-friendly stop for wood-fired pizza on the Avenue.</p><div class="signature"><em>Signature</em>&nbsp; <b>Neapolitan Margherita</b></div><div class="addr"><em>Address:</em> 1700 E Passyunk Ave, Philadelphia, PA 19148</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">7</span><h2>Gabriella's Vietnam</h2></div>
     
     <div class="entry-meta"><span class="tag">Vietnamese</span><span>East Passyunk</span><span class="price">$$$</span></div>
-    <div class="entry-photo g1"><b>Gabriella's Vietnam</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g1"><img src="https://images.unsplash.com/photo-1715925717150-2a6d181d8846?fm=jpg&q=60&w=2000&auto=format&fit=crop" alt="Gabriella's Vietnam" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Gabriella's Vietnam</b></div>
     <div class="entry-body"><p>This James Beard-recognized spot elevates Vietnamese cooking with dishes like delicate open-faced dumplings and whole fish steamed in a gourd. Warm hospitality and precise, vibrant flavors make it a standout on the strip.</p><div class="signature"><em>Signature</em>&nbsp; <b>Gourd-steamed branzino</b></div><div class="addr"><em>Address:</em> 1837 E Passyunk Ave, Philadelphia, PA 19148</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">8</span><h2>Stargazy</h2></div>
     
     <div class="entry-meta"><span class="tag">British</span><span>East Passyunk</span><span class="price">$$</span></div>
-    <div class="entry-photo g2"><b>Stargazy</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g2"><img src="https://images.pexels.com/photos/10289311/pexels-photo-10289311.jpeg" alt="Stargazy" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Stargazy</b></div>
     <div class="entry-body"><p>Chef Sam Jacobson brings a taste of Britain to South Philly with hand-raised pork pies, Scotch eggs, and a hearty Sunday roast. The cozy shop is a one-of-a-kind destination for savory British classics.</p><div class="signature"><em>Signature</em>&nbsp; <b>British pork pies</b></div><div class="addr"><em>Address:</em> 1838 E Passyunk Ave, Philadelphia, PA 19148</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">9</span><h2>Le Virtu</h2></div>
     
     <div class="entry-meta"><span class="tag">Italian</span><span>East Passyunk</span><span class="price">$$$</span></div>
-    <div class="entry-photo g3"><b>Le Virtu</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g3"><img src="https://images.pexels.com/photos/4253131/pexels-photo-4253131.jpeg" alt="Le Virtu" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Le Virtu</b></div>
     <div class="entry-body"><p>This destination for the rustic cuisine of Italy's Abruzzo region turns out hand-cut pastas and fire-grilled lamb skewers with serious authenticity. A lovely garden patio and deep regional wine list round out the experience.</p><div class="signature"><em>Signature</em>&nbsp; <b>Arrosticini (grilled lamb skewers)</b></div><div class="addr"><em>Address:</em> 1927 E Passyunk Ave, Philadelphia, PA 19148</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">10</span><h2>El Chingon</h2></div>
     
     <div class="entry-meta"><span class="tag">Mexican</span><span>East Passyunk</span><span class="price">$$</span></div>
-    <div class="entry-photo g4"><b>El Chingon</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g4"><img src="https://images.pexels.com/photos/33614212/pexels-photo-33614212.jpeg" alt="El Chingon" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>El Chingon</b></div>
     <div class="entry-body"><p>A tiny, wildly popular BYOB known for its house-made sourdough tortillas and bold, from-scratch Mexican cooking. Standout tacos and the overstuffed cemita sandwich keep the line out the door.</p><div class="signature"><em>Signature</em>&nbsp; <b>Cemita sandwich</b></div><div class="addr"><em>Address:</em> 1524 S 10th St, Philadelphia, PA 19147</div></div>
   </div>
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
@@ -215,7 +236,7 @@
     <div class="entry-head"><span class="rank">11</span><h2>Juana Tamale</h2></div>
     
     <div class="entry-meta"><span class="tag">Mexican</span><span>East Passyunk</span><span class="price">$$</span></div>
-    <div class="entry-photo g5"><b>Juana Tamale</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g5"><img src="https://images.pexels.com/photos/28558416/pexels-photo-28558416.jpeg" alt="Juana Tamale" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Juana Tamale</b></div>
     <div class="entry-body"><p>Chef Jennifer Zavala's colorful, festive spot serves handmade tamales, birria tacos, and inventive Mexican street food with plenty of personality. Strong margaritas and a fun patio make it a neighborhood favorite.</p><div class="signature"><em>Signature</em>&nbsp; <b>Handmade tamales</b></div><div class="addr"><em>Address:</em> 1941 E Passyunk Ave, Philadelphia, PA 19148</div></div>
   </div>
   <div class="related">
@@ -251,6 +272,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 PhillyFinder. Made in Philadelphia.</span>
+      <span>Photos via Unsplash, Pexels &amp; Wikimedia Commons.</span>
       <span>Not affiliated with the City of Philadelphia or Visit Philadelphia.</span>
     </div>
   </div>

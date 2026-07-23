@@ -108,6 +108,23 @@
   .g4{background:linear-gradient(150deg,#6b5b95,#3a2f54)}
   .g5{background:linear-gradient(150deg,#3f7360,#1f3a30)}
   .g6{background:linear-gradient(150deg,#a34760,#5e2436)}
+  .entry-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .entry-photo::after{z-index:1}
+  .pagehero{position:relative;background-color:var(--ink);background-size:cover;background-position:center;color:#fff;border-bottom:1px solid var(--line)}
+  .pagehero .narrow{padding:22px 24px 42px}
+  .pagehero .crumbs{color:rgba(255,255,255,.8);padding:0}
+  .pagehero .crumbs a{color:rgba(255,255,255,.85)}
+  .pagehero .crumbs a:hover{color:#fff}
+  .pagehero .eyebrow{color:#fff}
+  .pagehero .art-head{padding:12px 0 0}
+  .pagehero .art-head h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+  .pagehero .art-head .dek{color:rgba(255,255,255,.92)}
+  .pagehero .byline{color:rgba(255,255,255,.82)}
+  .pagehero .byline b{color:#fff}
+  .hubcard .top{position:relative;overflow:hidden}
+  .hubcard .top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hubcard .top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.5));z-index:1}
+  .hubcard .top span{position:relative;z-index:2}
 </style>
 </head>
 <body>
@@ -128,50 +145,54 @@
   </div>
 </header>
 
+<div class="pagehero" style="background-image:linear-gradient(rgba(20,16,12,.58),rgba(20,16,12,.72)), url('https://images.unsplash.com/photo-1719133110384-06c87971f65b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0')">
+  <div class="narrow">
+    <div class="crumbs"><a href="/">Home</a> / <a href="/things-to-do/best-things-to-do-philadelphia.html">Things to Do</a> / Best Parks</div>
+    <div class="art-head">
+      <span class="eyebrow">Get outside</span>
+      <h1>The Best Parks in Philadelphia</h1>
+      <p class="dek">From a 2,000-acre riverside wilderness to hammock-strung waterfront pop-ups, Philly's green spaces are some of the best in any big city.</p>
+      <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team &middot; Updated July 2026</span></div>
+    </div>
+  </div>
+</div>
 <div class="wrap" style="padding-top:14px"><div class="ad ad-leaderboard">Advertisement<small>728 &times; 90 &middot; Monetag zone</small></div></div>
 <div class="narrow">
-  <div class="crumbs"><a href="/">Home</a> / <a href="/things-to-do/best-things-to-do-philadelphia.html">Things to Do</a> / Best Parks</div>
-  <div class="art-head">
-    <span class="eyebrow">Get outside</span>
-    <h1>The Best Parks in Philadelphia</h1>
-    <p class="dek">From a 2,000-acre riverside wilderness to hammock-strung waterfront pop-ups, Philly's green spaces are some of the best in any big city.</p>
-    <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team &middot; Updated July 2026</span></div>
-  </div>
   <div class="intro"><p>For a dense East Coast city, Philadelphia is remarkably green, ringed and threaded by one of the largest urban park systems in the country.</p><p>Here are the parks, trails and gardens locals actually use, whether you want a rugged hike or a hammock by the river.</p></div>
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
   <div class="entry">
     <div class="entry-head"><span class="rank">1</span><h2>Fairmount Park</h2></div>
     <p class="tagline">The city's sprawling 2,000-acre green heart</p>
     <div class="entry-meta"><span class="tag">City Park</span><span>Northwest Philadelphia</span><span class="price">Free</span></div>
-    <div class="entry-photo g1"><b>Fairmount Park</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g1"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Fairmount_Park%2C_Philadelphia%2C_PA.JPG" alt="Fairmount Park" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Fairmount Park</b></div>
     <div class="entry-body"><p>This massive riverside park unfurls over 2,000 acres of rolling hills, meadows and waterfront, threaded with miles of trails and dotted with historic mansions and public sculpture. It also serves as home base for beloved attractions like the Philadelphia Zoo, Shofuso Japanese Cultural Center and the Please Touch Museum.</p><div class="addr"><em>Address:</em> 1800 Belmont Mansion Drive, Philadelphia, PA 19131</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">2</span><h2>Wissahickon Valley Park</h2></div>
     <p class="tagline">Rugged forested gorge with 50-plus miles of trails</p>
     <div class="entry-meta"><span class="tag">Trail</span><span>Northwest Philadelphia</span><span class="price">Free</span></div>
-    <div class="entry-photo g2"><b>Wissahickon Valley Park</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g2"><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Scenic_river_with_a_bridge_%28Unsplash%29.jpg" alt="Wissahickon Valley Park" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Wissahickon Valley Park</b></div>
     <div class="entry-body"><p>A wooded ravine carved by Wissahickon Creek offers more than 50 miles of rugged paths for hiking, trail running, mountain biking and horseback riding just minutes from the city. Its centerpiece is Forbidden Drive, a flat five-mile gravel route that traces the creek past the historic Valley Green Inn and Philadelphia's last covered bridge.</p><div class="addr"><em>Address:</em> Valley Green Road, Philadelphia, PA 19128</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">3</span><h2>Spruce Street Harbor Park</h2></div>
     <p class="tagline">Hammocks, lights and floating barges on the Delaware</p>
     <div class="entry-meta"><span class="tag">Seasonal</span><span>Penn's Landing</span><span class="price">Free</span></div>
-    <div class="entry-photo g3"><b>Spruce Street Harbor Park</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g3"><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Spruce_Street_Harbor_Park.jpg" alt="Spruce Street Harbor Park" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Spruce Street Harbor Park</b></div>
     <div class="entry-body"><p>From spring through fall, this pop-up waterfront destination transforms Penn's Landing into a festive oasis of tree-slung hammocks, string lights and floating barge lounges over the Delaware River. Visitors graze on food from local vendors and sip craft beer along the boardwalk while lawn games and colorful nets keep the vibe playful.</p><div class="addr"><em>Address:</em> 301 S. Columbus Boulevard, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">4</span><h2>Rittenhouse Square</h2></div>
     <p class="tagline">Philly's most elegant urban square</p>
     <div class="entry-meta"><span class="tag">City Park</span><span>Rittenhouse, Center City</span><span class="price">Free</span></div>
-    <div class="entry-photo g4"><b>Rittenhouse Square</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g4"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Rittenhouse_Square_-_autumn_-_IMG_6570.JPG" alt="Rittenhouse Square" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Rittenhouse Square</b></div>
     <div class="entry-body"><p>One of William Penn's five original squares, this leafy Center City park is a genteel gathering place with tree-lined walkways, sculptures, a reflecting pool and a central fountain. Year-round it draws readers, dog walkers, picnickers and artists, plus rotating farmers markets and craft fairs.</p><div class="addr"><em>Address:</em> 210 W. Rittenhouse Square, Philadelphia, PA 19103</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">5</span><h2>Franklin Square</h2></div>
     <p class="tagline">Family square with carousel and mini-golf</p>
     <div class="entry-meta"><span class="tag">City Park</span><span>Old City</span><span class="price">Free</span></div>
-    <div class="entry-photo g5"><b>Franklin Square</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g5"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/2013_Franklin_Square_Fountain.jpg" alt="Franklin Square" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Franklin Square</b></div>
     <div class="entry-body"><p>This family-friendly Old City square packs acres of green space around one of the country's oldest public fountains, along with a carousel, playgrounds and a Philly-themed mini-golf course. Seasonal daytime and evening water-and-light shows make its historic fountain a nighttime draw.</p><div class="addr"><em>Address:</em> 200 N. 6th Street, Philadelphia, PA 19106</div></div>
   </div>
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
@@ -179,35 +200,35 @@
     <div class="entry-head"><span class="rank">6</span><h2>Bartram's Garden</h2></div>
     <p class="tagline">America's oldest surviving botanic garden</p>
     <div class="entry-meta"><span class="tag">Garden</span><span>Southwest Philadelphia</span><span class="price">Free</span></div>
-    <div class="entry-photo g6"><b>Bartram's Garden</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g6"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Bartrams-Garden-House-1.jpg" alt="Bartram's Garden" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Bartram's Garden</b></div>
     <div class="entry-body"><p>Set on 50 riverfront acres, this National Historic Landmark is America's oldest surviving botanic garden, founded by 18th-century botanist John Bartram and free to the public. Visitors wander fragrant historic gardens, a reclaimed meadow and an urban farm, or head to the public dock for fishing, boating and river views.</p><div class="addr"><em>Address:</em> 5400 Lindbergh Boulevard, Philadelphia, PA 19143</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">7</span><h2>Race Street Pier</h2></div>
     <p class="tagline">Two-tiered pier beneath the Ben Franklin Bridge</p>
     <div class="entry-meta"><span class="tag">Riverfront</span><span>Delaware River Waterfront</span><span class="price">Free</span></div>
-    <div class="entry-photo g1"><b>Race Street Pier</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/2012_Ben_Franklin_Bridge_and_Race_Street_Pier.jpg/1280px-2012_Ben_Franklin_Bridge_and_Race_Street_Pier.jpg" alt="Race Street Pier" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Race Street Pier</b></div>
     <div class="entry-body"><p>Jutting into the Delaware in the shadow of the Benjamin Franklin Bridge, this two-level pier offers tiered seating, a grassy lawn and sweeping water views. Shade trees and benches make it a favorite spot for picnics, sunsets and a breezy riverside stroll.</p><div class="addr"><em>Address:</em> Race Street &amp; N. Columbus Boulevard, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">8</span><h2>Schuylkill River Trail</h2></div>
     <p class="tagline">Riverside walking and biking with a scenic boardwalk</p>
     <div class="entry-meta"><span class="tag">Trail</span><span>Center City to Fairmount Park</span><span class="price">Free</span></div>
-    <div class="entry-photo g2"><b>Schuylkill River Trail</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g2"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Schuylkill_River_Trail_2018.jpg" alt="Schuylkill River Trail" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Schuylkill River Trail</b></div>
     <div class="entry-body"><p>This popular multi-use trail runs for miles along the Schuylkill River, linking Center City to the Philadelphia Museum of Art, Fairmount Park and Kelly Drive with a standout over-water boardwalk section. Open year-round, it's a go-to for walking, jogging and cycling, with summer movie nights, kayak tours and scenic river cruises.</p><div class="addr"><em>Address:</em> 2501 Walnut Street, Philadelphia, PA 19103</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">9</span><h2>Washington Square</h2></div>
     <p class="tagline">Historic square and Revolutionary War memorial</p>
     <div class="entry-meta"><span class="tag">City Park</span><span>Society Hill</span><span class="price">Free</span></div>
-    <div class="entry-photo g3"><b>Washington Square</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g3"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Washington_Square_east_entrance.jpg" alt="Washington Square" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Washington Square</b></div>
     <div class="entry-body"><p>Another of Penn's original five squares, this tree-shaded green near Independence Hall carries layered history as a former burial ground and colonial-era gathering place. Today it's a tranquil retreat anchored by the Tomb of the Unknown Revolutionary War Soldier and its eternal flame.</p><div class="addr"><em>Address:</em> 210 W. Washington Square, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">10</span><h2>FDR Park</h2></div>
     <p class="tagline">South Philly lakes, birding and Southeast Asian Market</p>
     <div class="entry-meta"><span class="tag">City Park</span><span>South Philadelphia</span><span class="price">Free</span></div>
-    <div class="entry-photo g4"><b>FDR Park</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/FDR_Park_2A.JPG/3840px-FDR_Park_2A.JPG" alt="FDR Park" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>FDR Park</b></div>
     <div class="entry-body"><p>Tucked among South Philly's neighborhoods and stadiums, this park spreads across fields, trails, a lagoon and lakes that make it a bird-watcher's haven and a hub for tennis, rugby and baseball. Seasonal highlights include kayak tours, a volunteer-built skate park and the beloved Southeast Asian Market.</p><div class="addr"><em>Address:</em> 1500 Pattison Avenue, Philadelphia, PA 19145</div></div>
   </div>
   <div class="related">
@@ -243,6 +264,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 PhillyFinder. Made in Philadelphia.</span>
+      <span>Photos via Unsplash, Pexels &amp; Wikimedia Commons.</span>
       <span>Not affiliated with the City of Philadelphia or Visit Philadelphia.</span>
     </div>
   </div>

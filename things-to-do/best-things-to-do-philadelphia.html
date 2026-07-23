@@ -108,6 +108,23 @@
   .g4{background:linear-gradient(150deg,#6b5b95,#3a2f54)}
   .g5{background:linear-gradient(150deg,#3f7360,#1f3a30)}
   .g6{background:linear-gradient(150deg,#a34760,#5e2436)}
+  .entry-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .entry-photo::after{z-index:1}
+  .pagehero{position:relative;background-color:var(--ink);background-size:cover;background-position:center;color:#fff;border-bottom:1px solid var(--line)}
+  .pagehero .narrow{padding:22px 24px 42px}
+  .pagehero .crumbs{color:rgba(255,255,255,.8);padding:0}
+  .pagehero .crumbs a{color:rgba(255,255,255,.85)}
+  .pagehero .crumbs a:hover{color:#fff}
+  .pagehero .eyebrow{color:#fff}
+  .pagehero .art-head{padding:12px 0 0}
+  .pagehero .art-head h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+  .pagehero .art-head .dek{color:rgba(255,255,255,.92)}
+  .pagehero .byline{color:rgba(255,255,255,.82)}
+  .pagehero .byline b{color:#fff}
+  .hubcard .top{position:relative;overflow:hidden}
+  .hubcard .top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hubcard .top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.5));z-index:1}
+  .hubcard .top span{position:relative;z-index:2}
 </style>
 </head>
 <body>
@@ -128,50 +145,54 @@
   </div>
 </header>
 
+<div class="pagehero" style="background-image:linear-gradient(rgba(20,16,12,.58),rgba(20,16,12,.72)), url('https://images.pexels.com/photos/14088457/pexels-photo-14088457.jpeg?cs=srgb&fm=jpg')">
+  <div class="narrow">
+    <div class="crumbs"><a href="/">Home</a> / Things to Do</div>
+    <div class="art-head">
+      <span class="eyebrow">What to do</span>
+      <h1>The Best Things to Do in Philadelphia</h1>
+      <p class="dek">Founding-era history, world-class museums, great markets and one-of-a-kind experiences — the essential Philadelphia checklist.</p>
+      <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team &middot; Updated July 2026</span></div>
+    </div>
+  </div>
+</div>
 <div class="wrap" style="padding-top:14px"><div class="ad ad-leaderboard">Advertisement<small>728 &times; 90 &middot; Monetag zone</small></div></div>
 <div class="narrow">
-  <div class="crumbs"><a href="/">Home</a> / Things to Do</div>
-  <div class="art-head">
-    <span class="eyebrow">What to do</span>
-    <h1>The Best Things to Do in Philadelphia</h1>
-    <p class="dek">Founding-era history, world-class museums, great markets and one-of-a-kind experiences — the essential Philadelphia checklist.</p>
-    <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team &middot; Updated July 2026</span></div>
-  </div>
   <div class="intro"><p>Philadelphia rewards curiosity. It's the birthplace of American democracy, a serious arts and food town, and a city of distinct, walkable neighborhoods all packed into a compact core.</p><p>Whether you have a day or a long weekend, these are the attractions and experiences worth your time.</p></div>
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
   <div class="entry">
     <div class="entry-head"><span class="rank">1</span><h2>Liberty Bell</h2></div>
     <p class="tagline">The world's most famous symbol of American freedom</p>
     <div class="entry-meta"><span class="tag">Historic Site</span><span>Old City</span><span class="price">Free</span></div>
-    <div class="entry-photo g1"><b>Liberty Bell</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g1"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Liberty_Bell.jpg" alt="Liberty Bell" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Liberty Bell</b></div>
     <div class="entry-body"><p>Housed in its own glass-walled center, the cracked bronze bell draws visitors from around the globe to trace its journey from colonial statehouse fixture to an emblem of abolition and independence. Free timed entry and a walk-through exhibit make it an easy, moving first stop in Philadelphia's historic core.</p><div class="addr"><em>Address:</em> 526 Market St, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">2</span><h2>Independence Hall</h2></div>
     <p class="tagline">The birthplace of American independence</p>
     <div class="entry-meta"><span class="tag">Historic Site</span><span>Old City</span><span class="price">Free</span></div>
-    <div class="entry-photo g2"><b>Independence Hall</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g2"><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Independence_Hall.jpg" alt="Independence Hall" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Independence Hall</b></div>
     <div class="entry-body"><p>Both the Declaration of Independence and the U.S. Constitution were debated and signed inside this UNESCO World Heritage brick building, and ranger-led tours bring the founding-era rooms vividly to life. Admission is free but requires a timed ticket, so it pays to reserve ahead during busy months.</p><div class="addr"><em>Address:</em> 520 Chestnut St, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">3</span><h2>Philadelphia Museum of Art</h2></div>
     <p class="tagline">World-class art and the famous 'Rocky' steps</p>
     <div class="entry-meta"><span class="tag">Museum</span><span>Benjamin Franklin Parkway</span><span class="price">$$</span></div>
-    <div class="entry-photo g3"><b>Philadelphia Museum of Art</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g3"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Philadelphia_Art_Museum.jpg/3840px-Philadelphia_Art_Museum.jpg" alt="Philadelphia Museum of Art" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Philadelphia Museum of Art</b></div>
     <div class="entry-body"><p>One of the largest art museums in the country holds more than 240,000 works spanning Van Gogh, medieval armor and a reconstructed Japanese teahouse. Even non-visitors climb its grand east steps to strike a triumphant pose beside the Rocky statue and take in the skyline view.</p><div class="addr"><em>Address:</em> 2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">4</span><h2>Reading Terminal Market</h2></div>
     <p class="tagline">Philly's historic food hall since 1893</p>
     <div class="entry-meta"><span class="tag">Market</span><span>Center City</span><span class="price">Free</span></div>
-    <div class="entry-photo g4"><b>Reading Terminal Market</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g4"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Reading_Terminal_Market.jpg" alt="Reading Terminal Market" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Reading Terminal Market</b></div>
     <div class="entry-body"><p>More than a hundred vendors pack this bustling indoor market, serving everything from Amish soft pretzels and roast pork sandwiches to fresh produce and international street food. It is the best single place in the city to graze your way through Philadelphia's culinary identity in one visit.</p><div class="addr"><em>Address:</em> 1136 Arch St, Philadelphia, PA 19107</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">5</span><h2>Eastern State Penitentiary</h2></div>
     <p class="tagline">The world's first true penitentiary, now a haunting ruin</p>
     <div class="entry-meta"><span class="tag">Historic Site</span><span>Fairmount</span><span class="price">$$</span></div>
-    <div class="entry-photo g5"><b>Eastern State Penitentiary</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g5"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Philadelphia%27s_Eastern_State_Penitentiary%2C_main_gate.jpg/3840px-Philadelphia%27s_Eastern_State_Penitentiary%2C_main_gate.jpg" alt="Eastern State Penitentiary" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Eastern State Penitentiary</b></div>
     <div class="entry-body"><p>Once the most famous and expensive prison in the world, this crumbling castle-like fortress held Al Capone and pioneered the controversial solitary-confinement model. Self-guided audio tours through its decaying cellblocks are gripping by day, and the site transforms into a legendary haunted attraction each fall.</p><div class="addr"><em>Address:</em> 2027 Fairmount Ave, Philadelphia, PA 19130</div></div>
   </div>
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
@@ -179,35 +200,35 @@
     <div class="entry-head"><span class="rank">6</span><h2>Italian Market</h2></div>
     <p class="tagline">America's oldest continuously operating outdoor market</p>
     <div class="entry-meta"><span class="tag">Market</span><span>South Philadelphia</span><span class="price">Free</span></div>
-    <div class="entry-photo g6"><b>Italian Market</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g6"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Italian_Market_Philadelphia_05.jpg/1280px-Italian_Market_Philadelphia_05.jpg" alt="Italian Market" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Italian Market</b></div>
     <div class="entry-body"><p>Stretching along 9th Street, this open-air market has fed Philadelphia for over a century with fresh pasta, cheeses, produce, spices and old-school Italian delis. Wandering its curb-side stalls and family-run shops delivers a taste of the city's deep immigrant roots and enduring food culture.</p><div class="addr"><em>Address:</em> 919 S 9th St, Philadelphia, PA 19147</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">7</span><h2>Elfreth's Alley</h2></div>
     <p class="tagline">The nation's oldest continuously inhabited residential street</p>
     <div class="entry-meta"><span class="tag">Landmark</span><span>Old City</span><span class="price">Free</span></div>
-    <div class="entry-photo g1"><b>Elfreth's Alley</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Elfreth%27s_Alley_2.JPG/1280px-Elfreth%27s_Alley_2.JPG" alt="Elfreth's Alley" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Elfreth's Alley</b></div>
     <div class="entry-body"><p>This cobblestone lane of 18th-century row houses, still lived in today, feels like stepping straight into colonial Philadelphia. Visitors stroll past flower boxes and gas-style lamps, while a small museum house offers a closer look at the everyday lives of early tradespeople.</p><div class="addr"><em>Address:</em> 126 Elfreth's Alley, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">8</span><h2>Barnes Foundation</h2></div>
     <p class="tagline">One of the world's greatest Impressionist collections</p>
     <div class="entry-meta"><span class="tag">Museum</span><span>Benjamin Franklin Parkway</span><span class="price">$$</span></div>
-    <div class="entry-photo g2"><b>Barnes Foundation</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g2"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Barnes_Philly_1.JPG" alt="Barnes Foundation" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Barnes Foundation</b></div>
     <div class="entry-body"><p>Dr. Albert Barnes assembled a staggering trove of Renoir, Cezanne, Matisse and Picasso, displayed in his signature salon-style ensembles that pair fine art with ironwork and furniture. The purpose-built Parkway galleries preserve his idiosyncratic arrangements exactly as he intended.</p><div class="addr"><em>Address:</em> 2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">9</span><h2>The Franklin Institute</h2></div>
     <p class="tagline">A hands-on temple of science and discovery</p>
     <div class="entry-meta"><span class="tag">Museum</span><span>Logan Square</span><span class="price">$$</span></div>
-    <div class="entry-photo g3"><b>The Franklin Institute</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g3"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Philadelphia_October_2017_10_%28The_Franklin_Institute%29.jpg/1280px-Philadelphia_October_2017_10_%28The_Franklin_Institute%29.jpg" alt="The Franklin Institute" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>The Franklin Institute</b></div>
     <div class="entry-body"><p>Named for Philadelphia's favorite polymath, this beloved science museum lets visitors walk through a giant two-story model heart, explore space and electricity exhibits, and catch shows in its planetarium. Its interactive, family-friendly galleries make complex science genuinely fun for all ages.</p><div class="addr"><em>Address:</em> 222 N 20th St, Philadelphia, PA 19103</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">10</span><h2>Please Touch Museum</h2></div>
     <p class="tagline">Philadelphia's premier children's museum</p>
     <div class="entry-meta"><span class="tag">Museum</span><span>Fairmount Park</span><span class="price">$$</span></div>
-    <div class="entry-photo g4"><b>Please Touch Museum</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Please_Touch_Museum_at_Memorial_Hall.jpg/1280px-Please_Touch_Museum_at_Memorial_Hall.jpg" alt="Please Touch Museum" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Please Touch Museum</b></div>
     <div class="entry-body"><p>Set inside the grand 1876 Centennial Memorial Hall, this playful museum invites young kids to learn through hands-on exhibits, role-play spaces and a restored antique carousel. It is purpose-built for imaginative, unstructured play, making it a top pick for families with little ones.</p><div class="addr"><em>Address:</em> 4231 Avenue of the Republic, Philadelphia, PA 19131</div></div>
   </div>
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
@@ -215,28 +236,28 @@
     <div class="entry-head"><span class="rank">11</span><h2>Philadelphia's Magic Gardens</h2></div>
     <p class="tagline">An immersive mosaic labyrinth of found-object art</p>
     <div class="entry-meta"><span class="tag">Experience</span><span>South Street</span><span class="price">$</span></div>
-    <div class="entry-photo g5"><b>Philadelphia's Magic Gardens</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g5"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Magic_Garden-Philadelphia.jpg" alt="Philadelphia's Magic Gardens" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Philadelphia's Magic Gardens</b></div>
     <div class="entry-body"><p>Artist Isaiah Zagar covered half a city block with dazzling mosaics of tile, mirror, bottles and bicycle wheels, creating a maze-like indoor-outdoor wonderland. Every corner reveals new detail, making it one of the city's most photographed and singular creative spaces.</p><div class="addr"><em>Address:</em> 1020 South St, Philadelphia, PA 19147</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">12</span><h2>Spruce Street Harbor Park</h2></div>
     <p class="tagline">A seasonal riverfront oasis of hammocks and lights</p>
     <div class="entry-meta"><span class="tag">Experience</span><span>Penn's Landing</span><span class="price">Free</span></div>
-    <div class="entry-photo g6"><b>Spruce Street Harbor Park</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g6"><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Spruce_Street_Harbor_Park.jpg" alt="Spruce Street Harbor Park" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Spruce Street Harbor Park</b></div>
     <div class="entry-body"><p>Each warm season the Delaware River waterfront fills with colorful LED-lit hammocks, floating gardens, boardwalk games and food-and-drink vendors. It is a laid-back, free-to-enter spot to relax by the water with the Ben Franklin Bridge glowing overhead.</p><div class="addr"><em>Address:</em> 121 N Columbus Blvd, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">13</span><h2>Museum of the American Revolution</h2></div>
     <p class="tagline">Home of George Washington's original war tent</p>
     <div class="entry-meta"><span class="tag">Museum</span><span>Old City</span><span class="price">$$</span></div>
-    <div class="entry-photo g1"><b>Museum of the American Revolution</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g1"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Museum_of_the_American_Revolution.jpg" alt="Museum of the American Revolution" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>Museum of the American Revolution</b></div>
     <div class="entry-body"><p>This modern museum immerses visitors in the full story of America's founding through rare artifacts, life-size dioramas and powerful multimedia experiences. Its centerpiece is the tent Washington used as his mobile headquarters, revealed in a dramatic theater presentation.</p><div class="addr"><em>Address:</em> 101 S 3rd St, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">14</span><h2>LOVE Park</h2></div>
     <p class="tagline">Home of Robert Indiana's iconic LOVE sculpture</p>
     <div class="entry-meta"><span class="tag">Landmark</span><span>Center City</span><span class="price">Free</span></div>
-    <div class="entry-photo g2"><b>LOVE Park</b><span class="ph-note">Photo</span></div>
+    <div class="entry-photo g2"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/LOVE_Park_Philly.JPG" alt="LOVE Park" loading="lazy" onerror="this.style.display=&#39;none&#39;"><b>LOVE Park</b></div>
     <div class="entry-body"><p>Officially John F. Kennedy Plaza, this revamped public square is anchored by the bright red LOVE statue that has become one of Philadelphia's most recognizable photo spots. With its fountain, seating and views toward the Parkway, it is a lively gathering place in the heart of the city.</p><div class="addr"><em>Address:</em> 1599 John F. Kennedy Blvd, Philadelphia, PA 19102</div></div>
   </div>
   <div class="related">
@@ -272,6 +293,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 PhillyFinder. Made in Philadelphia.</span>
+      <span>Photos via Unsplash, Pexels &amp; Wikimedia Commons.</span>
       <span>Not affiliated with the City of Philadelphia or Visit Philadelphia.</span>
     </div>
   </div>
