@@ -268,12 +268,15 @@ HEAD = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>{css}</style>
+<!-- Monetag ad zones -->
+<script>(function(s){{s.dataset.zone='11380467',s.src='https://n6wxm.com/vignette.min.js'}})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script>(function(s){{s.dataset.zone='11380469',s.src='https://nap5k.com/tag.min.js'}})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 </head>
 <body>
 """
 
-AD_INLINE = '<div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>'
-AD_LEAD = '<div class="wrap" style="padding-top:14px"><div class="ad ad-leaderboard">Advertisement<small>728 &times; 90 &middot; Monetag zone</small></div></div>'
+AD_INLINE = ''
+AD_LEAD = ''
 
 def crumbs_html(crumbs):
     parts = []
