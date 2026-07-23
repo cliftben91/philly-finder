@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The 25 Best Restaurants in Philadelphia (2026) &mdash; PhillyFinder</title>
+<title>The 25 Best Restaurants in Philadelphia (2026) — PhillyFinder</title>
 <meta name="description" content="From James Beard winners to tiny BYOs, our ranked guide to the 25 best restaurants in Philadelphia right now, updated for 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
   .brand{font-family:'Archivo';font-weight:900;font-size:23px;letter-spacing:-.03em;display:flex;align-items:center;gap:9px;white-space:nowrap}
   .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:17px;font-weight:900;transform:rotate(-4deg)}
   .brand b{color:var(--accent)}
-  nav.links{display:flex;gap:28px;align-items:center}
+  nav.links{display:flex;gap:26px;align-items:center}
   nav.links a{font-size:14.5px;font-weight:600;color:var(--ink)}
   nav.links a:hover{color:var(--accent)}
   .nav-cta{background:var(--ink);color:#fff!important;padding:9px 16px;border-radius:999px;font-size:13.5px;font-weight:700}
@@ -50,12 +50,18 @@
   .byline b{color:var(--ink);font-weight:700}
   .intro{font-size:17px;color:#463f34;margin:28px 0 8px}
   .intro p{margin-bottom:16px}
+  .prose{font-size:16.5px;color:#463f34}
+  .prose h2{font-size:24px;margin:30px 0 12px}
+  .prose p{margin-bottom:16px}
+  .prose ul{margin:0 0 16px 22px}
+  .prose li{margin-bottom:8px}
   .entry{padding:34px 0;border-top:1px solid var(--line)}
   .entry:first-of-type{border-top:0}
-  .entry-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+  .entry-head{display:flex;align-items:baseline;gap:14px;margin-bottom:2px}
   .entry-head .rank{font-family:'Archivo';font-weight:900;font-size:30px;color:var(--accent);line-height:1;min-width:44px}
   .entry-head h2{font-size:27px}
-  .entry-meta{display:flex;flex-wrap:wrap;gap:9px;align-items:center;font-size:13.5px;color:var(--muted);margin:4px 0 16px 58px}
+  .tagline{color:var(--accent-dark);font-weight:600;font-size:15px;margin:0 0 6px 58px}
+  .entry-meta{display:flex;flex-wrap:wrap;gap:9px;align-items:center;font-size:13.5px;color:var(--muted);margin:6px 0 16px 58px}
   .entry-meta .tag{background:#efe6d6;color:#6a5c43;font-weight:600;padding:4px 10px;border-radius:999px;font-size:12px}
   .entry-meta .price{color:var(--gold);font-weight:700}
   .entry-photo{height:300px;border-radius:var(--radius);margin:0 0 18px;position:relative;display:grid;place-items:center;color:#fff;overflow:hidden}
@@ -74,6 +80,13 @@
   .related h2{color:#fff;font-size:28px;margin:10px 0 18px}
   .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:999px;cursor:pointer;border:0;font-family:inherit;background:var(--accent);color:#fff}
   .btn:hover{background:var(--accent-dark)}
+  .hubgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:30px 0}
+  .hubcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .16s ease,box-shadow .2s ease;display:flex;flex-direction:column}
+  .hubcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .hubcard .top{height:120px;display:grid;place-items:center;color:#fff;font-family:'Archivo';font-weight:800;font-size:22px;text-shadow:0 1px 10px rgba(0,0,0,.25)}
+  .hubcard .bot{padding:16px 18px}
+  .hubcard .bot p{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .hubcard .bot .go{font-size:12.5px;font-weight:700;color:var(--accent);margin-top:10px;display:inline-block}
   footer{background:var(--ink);color:#c9beac;margin-top:20px}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;padding:56px 0 34px}
   .foot-grid .brand{color:#fff;margin-bottom:12px}
@@ -85,73 +98,78 @@
   footer ul a:hover{color:#fff}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.09);padding:18px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#8a8072}
   @media(max-width:760px){.art-head h1{font-size:34px}nav.links{display:none}.menu-btn{display:block}
-    .entry-head h2{font-size:22px}.entry-head .rank{font-size:24px;min-width:34px}.entry-meta{margin-left:0}
-    .entry-photo{height:210px}.foot-grid{grid-template-columns:1fr 1fr}}
+    .entry-head h2{font-size:22px}.entry-head .rank{font-size:24px;min-width:34px}
+    .entry-meta,.tagline{margin-left:0}.entry-photo{height:210px}
+    .hubgrid{grid-template-columns:1fr 1fr}.foot-grid{grid-template-columns:1fr 1fr}}
+
+  .g1{background:linear-gradient(150deg,#c14a34,#7c2417)}
+  .g2{background:linear-gradient(150deg,#2f4b52,#16292e)}
+  .g3{background:linear-gradient(150deg,#b6892f,#6f4f14)}
+  .g4{background:linear-gradient(150deg,#6b5b95,#3a2f54)}
+  .g5{background:linear-gradient(150deg,#3f7360,#1f3a30)}
+  .g6{background:linear-gradient(150deg,#a34760,#5e2436)}
 </style>
 </head>
 <body>
 
 <div class="topbar"><div class="wrap"><span>Updated for 2026 &mdash; <strong>the definitive local guide to eating and exploring in Philadelphia</strong></span></div></div>
-
 <header class="site">
   <div class="wrap nav">
-    <a class="brand" href="../index.html"><span class="mark">P</span>Philly<b>Finder</b></a>
+    <a class="brand" href="/"><span class="mark">P</span>Philly<b>Finder</b></a>
     <nav class="links">
-      <a href="../index.html#restaurants">Restaurants</a>
-      <a href="../index.html#things">Things to Do</a>
-      <a href="../index.html#arts">Arts &amp; Culture</a>
-      <a href="../index.html#neighborhoods">Neighborhoods</a>
-      <a href="../index.html#daytrips">Day Trips</a>
-      <a class="nav-cta" href="../index.html#restaurants">Explore Philly</a>
+      <a href="/restaurants/best-restaurants-philadelphia.html">Restaurants</a>
+      <a href="/things-to-do/best-things-to-do-philadelphia.html">Things to Do</a>
+      <a href="/arts-culture/best-museums-philadelphia.html">Arts &amp; Culture</a>
+      <a href="/neighborhoods/">Neighborhoods</a>
+      <a href="/day-trips/best-day-trips-from-philadelphia.html">Day Trips</a>
+      <a class="nav-cta" href="/restaurants/best-restaurants-philadelphia.html">Explore Philly</a>
     </nav>
     <button class="menu-btn" aria-label="Menu">&#9776;</button>
   </div>
 </header>
 
 <div class="wrap" style="padding-top:14px"><div class="ad ad-leaderboard">Advertisement<small>728 &times; 90 &middot; Monetag zone</small></div></div>
-
 <div class="narrow">
-  <div class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#restaurants">Restaurants</a> / Best Restaurants</div>
+  <div class="crumbs"><a href="/">Home</a> / Restaurants</div>
   <div class="art-head">
     <span class="eyebrow">Where to eat</span>
     <h1>The 25 Best Restaurants in Philadelphia</h1>
     <p class="dek">From James Beard winners and Michelin stars to tiny BYOs, these are the tables defining Philadelphia dining right now.</p>
     <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team &middot; Updated July 2026</span></div>
   </div>
-
-  <div class="intro">
-    <p>Philadelphia's dining scene has never been better. Over the past few years the city has racked up James Beard Awards, a growing list of Michelin stars, and a wave of ambitious BYOs that punch far above their size, and it's now genuinely one of the most exciting places to eat in the country.</p>
-    <p>We pulled together the restaurants worth building a night, or a whole trip, around. From Southern Thai fireworks to fine-dining Italian, live-fire Israeli grills to hidden sushi counters, here are the 25 best restaurants in Philadelphia right now.</p>
-  </div>
-
+  <div class="intro"><p>Philadelphia's dining scene has never been better. Over the past few years the city has racked up James Beard Awards, a growing list of Michelin stars, and a wave of ambitious BYOs that punch far above their size.</p><p>We pulled together the restaurants worth building a night, or a whole trip, around. From Southern Thai fireworks to fine-dining Italian and hidden sushi counters, here are the 25 best restaurants in Philadelphia right now.</p></div>
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
-
   <div class="entry">
     <div class="entry-head"><span class="rank">1</span><h2>Kalaya</h2></div>
+    
     <div class="entry-meta"><span class="tag">Thai</span><span>Fishtown</span><span class="price">$$$</span></div>
     <div class="entry-photo g1"><b>Kalaya</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Chef Nok Suntaranon's Southern Thai powerhouse earned a James Beard Outstanding Restaurant award for its bold, layered curries and seafood. The lively Fishtown dining room feels celebratory, with ornate dishes and a depth of Thai flavor rarely seen at this level.</p><div class="signature"><em>Signature</em>&nbsp; <b>Tom yum with giant river prawns</b></div><div class="addr"><em>Address:</em> 4 West Palmer Street, Philadelphia, PA 19125</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">2</span><h2>Zahav</h2></div>
+    
     <div class="entry-meta"><span class="tag">Israeli</span><span>Society Hill</span><span class="price">$$$</span></div>
     <div class="entry-photo g2"><b>Zahav</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Michael Solomonov's landmark Israeli restaurant remains a national reference point for modern Middle Eastern cooking. Silky hummus, wood-fire grilling, and gracious service anchor a meal worth planning a trip around.</p><div class="signature"><em>Signature</em>&nbsp; <b>Pomegranate-braised lamb shoulder</b></div><div class="addr"><em>Address:</em> 237 Saint James Place, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">3</span><h2>Vetri Cucina</h2></div>
+    
     <div class="entry-meta"><span class="tag">Italian</span><span>Midtown Village</span><span class="price">$$$$</span></div>
     <div class="entry-photo g3"><b>Vetri Cucina</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Marc Vetri's long-running temple to Italian fine dining still delivers a flawless, detail-obsessed tasting experience decades in. Impeccable pastas and knowing service keep it among Philadelphia's brightest culinary landmarks.</p><div class="signature"><em>Signature</em>&nbsp; <b>Spinach gnocchi</b></div><div class="addr"><em>Address:</em> 1312 Spruce Street, Philadelphia, PA 19107</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">4</span><h2>Friday Saturday Sunday</h2></div>
+    
     <div class="entry-meta"><span class="tag">New American</span><span>Rittenhouse</span><span class="price">$$$$</span></div>
     <div class="entry-photo g4"><b>Friday Saturday Sunday</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Chad and Hanna Williams' townhouse restaurant earned a Michelin star for its technical, seasonal, and personal contemporary cooking. Warm service and inventive desserts round out one of the city's most refined nights out.</p><div class="signature"><em>Signature</em>&nbsp; <b>Cream of mushroom soup</b></div><div class="addr"><em>Address:</em> 261 South 21st Street, Philadelphia, PA 19103</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">5</span><h2>Mawn</h2></div>
+    
     <div class="entry-meta"><span class="tag">Cambodian</span><span>Bella Vista</span><span class="price">$$$</span></div>
     <div class="entry-photo g5"><b>Mawn</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>This tiny 32-seat BYO from Phila and Rachel Lorn serves modern Cambodian cooking with the energy of a nightly celebration. Cold night-market noodles and chili-laced soups have made it one of the most award-decorated tables in the city.</p><div class="signature"><em>Signature</em>&nbsp; <b>Wagyu beef noodle soup</b></div><div class="addr"><em>Address:</em> 764 South 9th Street, Philadelphia, PA 19147</div></div>
@@ -159,30 +177,35 @@
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
   <div class="entry">
     <div class="entry-head"><span class="rank">6</span><h2>Royal Sushi &amp; Izakaya</h2></div>
+    
     <div class="entry-meta"><span class="tag">Japanese</span><span>Queen Village</span><span class="price">$$$$</span></div>
     <div class="entry-photo g6"><b>Royal Sushi &amp; Izakaya</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Behind a bustling izakaya sits a hidden sushi counter serving one of the city's finest omakase experiences. The front room's flavorful small plates and drinks make it a night that works on two levels.</p><div class="signature"><em>Signature</em>&nbsp; <b>Hidden-counter omakase</b></div><div class="addr"><em>Address:</em> 780 South 2nd Street, Philadelphia, PA 19147</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">7</span><h2>Vernick Fish</h2></div>
+    
     <div class="entry-meta"><span class="tag">Seafood</span><span>Center City</span><span class="price">$$$$</span></div>
     <div class="entry-photo g1"><b>Vernick Fish</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Greg Vernick's polished seafood restaurant delivers pristine fish and raw-bar classics in a sleek Comcast-tower setting. Precise cooking and a strong oyster program make it a top-tier special-occasion choice.</p><div class="signature"><em>Signature</em>&nbsp; <b>Raw bar and oysters</b></div><div class="addr"><em>Address:</em> 1 North 19th Street, Philadelphia, PA 19103</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">8</span><h2>Laser Wolf</h2></div>
+    
     <div class="entry-meta"><span class="tag">Israeli</span><span>Kensington</span><span class="price">$$$</span></div>
     <div class="entry-photo g2"><b>Laser Wolf</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>This shipudiya from the Zahav team builds a whole meal around live-fire skewers and an endless spread of salads and hummus. The bright room and set format make it a reliably fun group night out.</p><div class="signature"><em>Signature</em>&nbsp; <b>Skewers with bottomless salatim</b></div><div class="addr"><em>Address:</em> 1301 North Howard Street, Philadelphia, PA 19122</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">9</span><h2>My Loup</h2></div>
+    
     <div class="entry-meta"><span class="tag">Modern French</span><span>Rittenhouse</span><span class="price">$$$</span></div>
     <div class="entry-photo g3"><b>My Loup</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Amanda Shulman and Alex Kemp run this lively bistro just off Rittenhouse Square, serving a rotating menu of modern French cooking with a strong raw bar. The room hums with an intimate, celebratory energy that has made it one of the city's toughest reservations.</p><div class="signature"><em>Signature</em>&nbsp; <b>Raw bar plateau</b></div><div class="addr"><em>Address:</em> 2005 Walnut Street, Philadelphia, PA 19103</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">10</span><h2>Her Place Supper Club</h2></div>
+    
     <div class="entry-meta"><span class="tag">New American</span><span>Rittenhouse</span><span class="price">$$$</span></div>
     <div class="entry-photo g4"><b>Her Place Supper Club</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Chef Amanda Shulman's intimate supper club serves a warm, communal set menu that feels like dinner at a very talented friend's home. Its personal, seasonal cooking has made reservations among the hardest to land in the city.</p><div class="signature"><em>Signature</em>&nbsp; <b>Nightly set menu</b></div><div class="addr"><em>Address:</em> 1740 Sansom Street, Philadelphia, PA 19103</div></div>
@@ -190,30 +213,35 @@
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
   <div class="entry">
     <div class="entry-head"><span class="rank">11</span><h2>Vernick Food &amp; Drink</h2></div>
+    
     <div class="entry-meta"><span class="tag">New American</span><span>Rittenhouse</span><span class="price">$$$$</span></div>
     <div class="entry-photo g5"><b>Vernick Food &amp; Drink</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>James Beard winner Greg Vernick runs this bi-level Rittenhouse brownstone where simply roasted vegetables and fish share the spotlight with his famous toasts. The cooking is refined yet unfussy, cementing its status as a longtime Philadelphia benchmark.</p><div class="signature"><em>Signature</em>&nbsp; <b>Uni toast</b></div><div class="addr"><em>Address:</em> 2031 Walnut Street, Philadelphia, PA 19103</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">12</span><h2>Bastia</h2></div>
+    
     <div class="entry-meta"><span class="tag">Mediterranean</span><span>Fishtown</span><span class="price">$$$</span></div>
     <div class="entry-photo g6"><b>Bastia</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Tyler Akin's coastal Mediterranean spot channels Corsica and the islands with wood-fired seafood and pastas. Bright flavors and an easy, sun-washed vibe make it one of Fishtown's marquee arrivals.</p><div class="signature"><em>Signature</em>&nbsp; <b>Grilled half lobster algherese</b></div><div class="addr"><em>Address:</em> 1401 East Susquehanna Avenue, Philadelphia, PA 19125</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">13</span><h2>Honeysuckle</h2></div>
+    
     <div class="entry-meta"><span class="tag">African Diaspora</span><span>Poplar</span><span class="price">$$$</span></div>
     <div class="entry-photo g1"><b>Honeysuckle</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Omar Tate and Cybille St. Aude-Tate treat this Broad Street space as part restaurant, part cultural preservation project celebrating the foodways of the African Diaspora. The storytelling menu has drawn national acclaim for its ambition and heart.</p><div class="signature"><em>Signature</em>&nbsp; <b>Storytelling tasting menu</b></div><div class="addr"><em>Address:</em> 631 North Broad Street, Philadelphia, PA 19123</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">14</span><h2>Suraya</h2></div>
+    
     <div class="entry-meta"><span class="tag">Lebanese</span><span>Fishtown</span><span class="price">$$$</span></div>
     <div class="entry-photo g2"><b>Suraya</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>A sprawling Lebanese cafe, market, and restaurant with a gorgeous garden patio. Mornings bring pastries and coffee, while dinner delivers mezze and wood-fired kebabs in one of the neighborhood's prettiest spaces.</p><div class="signature"><em>Signature</em>&nbsp; <b>Wood-fired lamb kebabs</b></div><div class="addr"><em>Address:</em> 1528 Frankford Avenue, Philadelphia, PA 19125</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">15</span><h2>Barclay Prime</h2></div>
+    
     <div class="entry-meta"><span class="tag">Steakhouse</span><span>Rittenhouse</span><span class="price">$$$$</span></div>
     <div class="entry-photo g3"><b>Barclay Prime</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>This plush Stephen Starr steakhouse pairs globally sourced prime cuts and caviar service with a clubby, jewel-box dining room. Its over-the-top Wagyu cheesesteak has become a Philadelphia luxury-dining rite of passage.</p><div class="signature"><em>Signature</em>&nbsp; <b>Wagyu-and-truffle cheesesteak</b></div><div class="addr"><em>Address:</em> 237 South 18th Street, Philadelphia, PA 19103</div></div>
@@ -221,30 +249,35 @@
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
   <div class="entry">
     <div class="entry-head"><span class="rank">16</span><h2>Emmett</h2></div>
+    
     <div class="entry-meta"><span class="tag">Mediterranean</span><span>Olde Kensington</span><span class="price">$$$$</span></div>
     <div class="entry-photo g4"><b>Emmett</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>This cozy corner spot serves an ambitious Mediterranean-leaning tasting menu built around seasonal, market-driven cooking. Its dry-aged duck has become a signature, helping earn Emmett a place among the city's very best.</p><div class="signature"><em>Signature</em>&nbsp; <b>Dry-aged duck</b></div><div class="addr"><em>Address:</em> 161 West Girard Avenue, Philadelphia, PA 19123</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">17</span><h2>Little Fish</h2></div>
+    
     <div class="entry-meta"><span class="tag">Seafood</span><span>Bella Vista</span><span class="price">$$$</span></div>
     <div class="entry-photo g5"><b>Little Fish</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>This tiny chef-driven BYOB changes its handwritten menu nightly around whatever seafood is freshest. The kitchen's precise, ingredient-forward plates have earned it a permanent spot on the city's best-of lists.</p><div class="signature"><em>Signature</em>&nbsp; <b>Scallop toast</b></div><div class="addr"><em>Address:</em> 746 South 6th Street, Philadelphia, PA 19147</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">18</span><h2>Ogawa</h2></div>
+    
     <div class="entry-meta"><span class="tag">Japanese</span><span>Old City</span><span class="price">$$$$</span></div>
     <div class="entry-photo g6"><b>Ogawa</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>This intimate Old City counter delivers a multi-course Edomae-style omakase prized as one of the best sushi values in Philadelphia. Diners sit for a guided procession of expertly composed nigiri and kappo courses.</p><div class="signature"><em>Signature</em>&nbsp; <b>Edomae omakase</b></div><div class="addr"><em>Address:</em> 310 Market Street, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">19</span><h2>Pizzeria Beddia</h2></div>
+    
     <div class="entry-meta"><span class="tag">Pizza</span><span>Fishtown</span><span class="price">$$</span></div>
     <div class="entry-photo g1"><b>Pizzeria Beddia</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Joe Beddia's pizzeria, once dubbed home of the best pizza in America, serves meticulously crafted pies in a bright, plant-filled room. A patio and natural-wine list round out the low-key but destination-worthy experience.</p><div class="signature"><em>Signature</em>&nbsp; <b>The Beddia hoagie and wood-fired pies</b></div><div class="addr"><em>Address:</em> 1313 North Lee Street, Philadelphia, PA 19125</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">20</span><h2>Ambra</h2></div>
+    
     <div class="entry-meta"><span class="tag">Modern Italian</span><span>Queen Village</span><span class="price">$$$$</span></div>
     <div class="entry-photo g2"><b>Ambra</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Chris D'Ambro and Marina De Oliveira run this itsy-bitsy Queen Village destination offering a modern Italian tasting menu. The tiny footprint and ambitious, personal cooking make it one of the city's most distinctive fine-dining seats.</p><div class="signature"><em>Signature</em>&nbsp; <b>Multi-course Italian tasting</b></div><div class="addr"><em>Address:</em> 705 South 4th Street, Philadelphia, PA 19147</div></div>
@@ -252,39 +285,43 @@
   <div class="ad ad-inline">Advertisement<small>Responsive &middot; Monetag native / display zone</small></div>
   <div class="entry">
     <div class="entry-head"><span class="rank">21</span><h2>Amá</h2></div>
+    
     <div class="entry-meta"><span class="tag">Mexican</span><span>Fishtown</span><span class="price">$$$</span></div>
     <div class="entry-photo g3"><b>Amá</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Chef Frankie Ramirez cooks a live-fire menu of contemporary Mexican dishes at this buzzy spot on the Fishtown-Kensington border. Smoke-kissed proteins and vibrant tostadas anchor a menu that has landed it among the city's essential new tables.</p><div class="signature"><em>Signature</em>&nbsp; <b>Live-fire lamb birria</b></div><div class="addr"><em>Address:</em> 101 West Oxford Street, Philadelphia, PA 19122</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">22</span><h2>Provenance</h2></div>
+    
     <div class="entry-meta"><span class="tag">French</span><span>Society Hill</span><span class="price">$$$</span></div>
     <div class="entry-photo g4"><b>Provenance</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Owner-chef Nicholas Kennedy brings classic French cooking to a warm, romantic Society Hill dining room. Its careful execution of bistro standards quickly earned it a place among the city's most talked-about newcomers.</p><div class="signature"><em>Signature</em>&nbsp; <b>Bistro classics</b></div><div class="addr"><em>Address:</em> 408 South 2nd Street, Philadelphia, PA 19147</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">23</span><h2>Fork</h2></div>
+    
     <div class="entry-meta"><span class="tag">New American</span><span>Old City</span><span class="price">$$$</span></div>
     <div class="entry-photo g5"><b>Fork</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>A pioneering Old City fixture since 1997, Fork continues to turn out seasonally driven American cooking and craft cocktails. Its consistency and refined, ingredient-focused menu keep it firmly on Philadelphia's best-of lists decades in.</p><div class="signature"><em>Signature</em>&nbsp; <b>Seasonal tasting</b></div><div class="addr"><em>Address:</em> 306 Market Street, Philadelphia, PA 19106</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">24</span><h2>River Twice</h2></div>
+    
     <div class="entry-meta"><span class="tag">New American</span><span>East Passyunk</span><span class="price">$$$</span></div>
     <div class="entry-photo g6"><b>River Twice</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>An intimate East Passyunk BYO built around a dynamic, ever-shifting prix fixe. The kitchen's inventive, ingredient-driven courses keep regulars coming back to see what's new.</p><div class="signature"><em>Signature</em>&nbsp; <b>Chef's tasting menu</b></div><div class="addr"><em>Address:</em> 1601 East Passyunk Avenue, Philadelphia, PA 19148</div></div>
   </div>
   <div class="entry">
     <div class="entry-head"><span class="rank">25</span><h2>El Chingon</h2></div>
+    
     <div class="entry-meta"><span class="tag">Mexican</span><span>East Passyunk</span><span class="price">$$</span></div>
     <div class="entry-photo g1"><b>El Chingon</b><span class="ph-note">Photo</span></div>
     <div class="entry-body"><p>Chef-owner Carlos Aparicio reimagines Mexican cuisine with bold flavors at this lively South Philly spot. Its consommé-dipped birria tacos have built a devoted following and a regular place on the city's taco rankings.</p><div class="signature"><em>Signature</em>&nbsp; <b>Consommé-dipped birria tacos</b></div><div class="addr"><em>Address:</em> 1524 South 10th Street, Philadelphia, PA 19147</div></div>
   </div>
-
   <div class="related">
     <span class="eyebrow">Keep exploring</span>
     <h2>The 10 Best Cheesesteaks in Philadelphia</h2>
-    <a class="btn" href="best-cheesesteaks-philadelphia.html">See the full ranking &rarr;</a>
+    <a class="btn" href="/restaurants/best-cheesesteaks-philadelphia.html">See the ranking &rarr;</a>
   </div>
 </div>
 
@@ -292,24 +329,25 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="../index.html">Philly<b>Finder</b></a>
+        <a class="brand" href="/">Philly<b>Finder</b></a>
         <p class="tag">Your independent, locally-curated guide to the best restaurants, things to do, and neighborhoods in Philadelphia.</p>
       </div>
       <div><h4>Eat</h4><ul>
-        <li><a href="best-restaurants-philadelphia.html">Best Restaurants</a></li>
-        <li><a href="best-cheesesteaks-philadelphia.html">Best Cheesesteaks</a></li>
-        <li><a href="../index.html#restaurants">By Cuisine</a></li>
-        <li><a href="../index.html#neighborhoods">By Neighborhood</a></li></ul></div>
+        <li><a href="/restaurants/best-restaurants-philadelphia.html">Best Restaurants</a></li>
+        <li><a href="/restaurants/best-cheesesteaks-philadelphia.html">Best Cheesesteaks</a></li>
+        <li><a href="/neighborhoods/best-restaurants-fishtown.html">Restaurants in Fishtown</a></li>
+        <li><a href="/neighborhoods/">Neighborhoods</a></li></ul></div>
       <div><h4>Explore</h4><ul>
-        <li><a href="../index.html#things">Things to Do</a></li>
-        <li><a href="../index.html#arts">Museums</a></li>
-        <li><a href="../index.html#things">Parks</a></li>
-        <li><a href="../index.html#daytrips">Day Trips</a></li></ul></div>
+        <li><a href="/things-to-do/best-things-to-do-philadelphia.html">Things to Do</a></li>
+        <li><a href="/things-to-do/best-parks-philadelphia.html">Best Parks</a></li>
+        <li><a href="/arts-culture/best-museums-philadelphia.html">Museums</a></li>
+        <li><a href="/arts-culture/theater-and-live-music-philadelphia.html">Theater &amp; Music</a></li>
+        <li><a href="/day-trips/best-day-trips-from-philadelphia.html">Day Trips</a></li></ul></div>
       <div><h4>About</h4><ul>
-        <li><a href="#">Our Story</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Advertise</a></li>
-        <li><a href="#">Privacy</a></li></ul></div>
+        <li><a href="/about.html">Our Story</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/advertise.html">Advertise</a></li>
+        <li><a href="/privacy.html">Privacy</a></li></ul></div>
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 PhillyFinder. Made in Philadelphia.</span>
