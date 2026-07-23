@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build all PhillyFinder pages from data files. Regenerate the whole site: python3 build_site.py"""
 import json, html, pathlib
+from urllib.parse import quote
 
 BASE = pathlib.Path(__file__).parent
 D = BASE / "data"
@@ -54,6 +55,23 @@ def item_image(item, idx):
         if pool:
             return pool[(idx - 1) % len(pool)]
     return None
+
+WEBSITES = load("websites.json")
+
+def website_url(item):
+    u = WEBSITES.get(item.get("name", ""))
+    if u:
+        return u
+    loc = item.get("neighborhood") or item.get("location") or "Philadelphia"
+    return "https://www.google.com/search?q=" + quote(f'{item.get("name","")} {loc}')
+
+def maps_url(item):
+    name = item.get("name", "")
+    if item.get("address"):
+        q = f'{name} {item["address"]}'
+    else:
+        q = f'{name} {item.get("neighborhood") or item.get("location") or "Philadelphia"}'
+    return "https://www.google.com/maps/search/?api=1&query=" + quote(q)
 
 CSS = """
   :root{--ink:#1a1611;--paper:#f7f2e9;--card:#ffffff;--muted:#6f665a;--line:#e4dccd;
@@ -175,6 +193,14 @@ GRAD_CSS = """
   .hubcard .top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
   .hubcard .top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.5));z-index:1}
   .hubcard .top span{position:relative;z-index:2}
+  .entry-head h2 a{color:inherit}
+  .entry-head h2 a:hover{color:var(--accent)}
+  a.entry-photo{cursor:pointer;text-decoration:none}
+  .addr a{color:var(--accent-dark);text-decoration:underline;text-underline-offset:2px}
+  .addr a:hover{color:var(--accent)}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .actions .act{font-size:13px;font-weight:700;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:8px 15px;background:#fff;transition:all .16s ease}
+  .actions .act:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 """
 
 NAV = """
@@ -269,16 +295,19 @@ def entry_html(i, item):
     if price: meta.append(f'<span class="price">{esc(price)}</span>')
     tagline = f'<p class="tagline">{esc(highlight)}</p>' if highlight else ""
     sig = f'<div class="signature"><em>Signature</em>&nbsp; <b>{esc(signature)}</b></div>' if signature else ""
-    addr = f'<div class="addr"><em>Address:</em> {esc(item["address"])}</div>' if item.get("address") else ""
+    site = website_url(item)
+    maps = maps_url(item)
+    addr = f'<div class="addr"><em>Address:</em> <a href="{maps}" target="_blank" rel="noopener noreferrer">{esc(item["address"])}</a></div>' if item.get("address") else ""
     img = item_image(item, i)
     imgtag = f'<img src="{img}" alt="{esc(item["name"])}" loading="lazy" onerror="this.style.display=&#39;none&#39;">' if img else ""
     phnote = "" if img else '<span class="ph-note">Photo</span>'
+    actions = f'<div class="actions"><a class="act" href="{site}" target="_blank" rel="noopener noreferrer">Visit website &#8599;</a><a class="act" href="{maps}" target="_blank" rel="noopener noreferrer">Get directions &#8599;</a></div>'
     return f'''  <div class="entry">
-    <div class="entry-head"><span class="rank">{i}</span><h2>{esc(item["name"])}</h2></div>
+    <div class="entry-head"><span class="rank">{i}</span><h2><a href="{site}" target="_blank" rel="noopener noreferrer">{esc(item["name"])}</a></h2></div>
     {tagline}
     <div class="entry-meta">{"".join(meta)}</div>
-    <div class="entry-photo {g}">{imgtag}<b>{esc(item["name"])}</b>{phnote}</div>
-    <div class="entry-body"><p>{esc(item["description"])}</p>{sig}{addr}</div>
+    <a class="entry-photo {g}" href="{site}" target="_blank" rel="noopener noreferrer">{imgtag}<b>{esc(item["name"])}</b>{phnote}</a>
+    <div class="entry-body"><p>{esc(item["description"])}</p>{sig}{addr}{actions}</div>
   </div>'''
 
 def render_listicle(cfg, items):
