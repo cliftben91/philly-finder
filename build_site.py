@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build all PhillyFinder pages from data files. Regenerate the whole site: python3 build_site.py"""
+"""Build all GuidePhilly pages from data files. Regenerate the whole site: python3 build_site.py"""
 import json, html, pathlib
 from urllib.parse import quote
 
@@ -97,7 +97,7 @@ CSS = """
   header.site{position:sticky;top:0;z-index:50;background:rgba(247,242,233,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
   .brand{font-family:'Archivo';font-weight:900;font-size:23px;letter-spacing:-.03em;display:flex;align-items:center;gap:9px;white-space:nowrap}
-  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:17px;font-weight:900;transform:rotate(-4deg)}
+  .brand .mark{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900;letter-spacing:-.3px;transform:rotate(-4deg)}
   .brand b{color:var(--accent)}
   nav.links{display:flex;gap:26px;align-items:center}
   nav.links a{font-size:14.5px;font-weight:600;color:var(--ink)}
@@ -207,7 +207,7 @@ NAV = """
 <div class="topbar"><div class="wrap"><span>Updated for 2026 &mdash; <strong>the definitive local guide to eating and exploring in Philadelphia</strong></span></div></div>
 <header class="site">
   <div class="wrap nav">
-    <a class="brand" href="/"><span class="mark">P</span>Philly<b>Finder</b></a>
+    <a class="brand" href="/"><span class="mark">GP</span>Guide<b>Philly</b></a>
     <nav class="links">
       <a href="/restaurants/best-restaurants-philadelphia.html">Restaurants</a>
       <a href="/things-to-do/best-things-to-do-philadelphia.html">Things to Do</a>
@@ -226,7 +226,7 @@ FOOTER = """
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="/">Philly<b>Finder</b></a>
+        <a class="brand" href="/">Guide<b>Philly</b></a>
         <p class="tag">Your independent, locally-curated guide to the best restaurants, things to do, and neighborhoods in Philadelphia.</p>
       </div>
       <div><h4>Eat</h4><ul>
@@ -247,7 +247,7 @@ FOOTER = """
         <li><a href="/privacy.html">Privacy</a></li></ul></div>
     </div>
     <div class="foot-bottom">
-      <span>&copy; 2026 PhillyFinder. Made in Philadelphia.</span>
+      <span>&copy; 2026 GuidePhilly. Made in Philadelphia.</span>
       <span>Photos via Unsplash, Pexels &amp; Wikimedia Commons.</span>
       <span>Not affiliated with the City of Philadelphia or Visit Philadelphia.</span>
     </div>
@@ -262,6 +262,7 @@ HEAD = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content="{meta}">
+<link rel="canonical" href="{canonical}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -322,7 +323,7 @@ def render_listicle(cfg, items):
     hero_url = HEROES.get(cfg.get("hero") or "")
     hero_style = (f"background-image:linear-gradient(rgba(20,16,12,.58),rgba(20,16,12,.72)), url('{hero_url}')"
                   if hero_url else "")
-    return HEAD.format(title=esc(cfg["title"]), meta=esc(cfg["meta"]), css=css) + f'''{NAV}
+    return HEAD.format(title=esc(cfg["title"]), meta=esc(cfg["meta"]), css=css, canonical=cfg.get("canonical", "https://guidephilly.com/")) + f'''{NAV}
 <div class="pagehero" style="{hero_style}">
   <div class="narrow">
     {crumbs_html(cfg["crumbs"])}
@@ -330,7 +331,7 @@ def render_listicle(cfg, items):
       <span class="eyebrow">{esc(cfg["eyebrow"])}</span>
       <h1>{esc(cfg["h1"])}</h1>
       <p class="dek">{esc(cfg["dek"])}</p>
-      <div class="byline"><span class="avatar">PF</span><span>By the <b>PhillyFinder</b> team &middot; Updated July 2026</span></div>
+      <div class="byline"><span class="avatar">GP</span><span>By the <b>GuidePhilly</b> team &middot; Updated July 2026</span></div>
     </div>
   </div>
 </div>
@@ -350,8 +351,8 @@ def render_listicle(cfg, items):
 </html>
 '''
 
-def render_static(title, meta, eyebrow, h1, crumbs, body):
-    return HEAD.format(title=esc(title), meta=esc(meta), css=CSS) + f'''{NAV}
+def render_static(title, meta, eyebrow, h1, crumbs, body, canonical="https://guidephilly.com/"):
+    return HEAD.format(title=esc(title), meta=esc(meta), css=CSS, canonical=canonical) + f'''{NAV}
 {AD_LEAD}
 <div class="narrow" style="padding-bottom:40px">
   {crumbs_html(crumbs)}
@@ -369,10 +370,18 @@ def write(rel, content):
     p.write_text(content, encoding="utf-8")
     print(f"  wrote {rel} ({len(content)} bytes)")
 
+def canon(out):
+    p = out
+    if p.endswith("index.html"):
+        p = p[:-len("index.html")]
+    elif p.endswith(".html"):
+        p = p[:-5]
+    return "https://guidephilly.com/" + p
+
 # ---- Listicle pages ----
 PAGES = [
   (restaurants, "restaurants/best-restaurants-philadelphia.html", {
-    "title":"The 25 Best Restaurants in Philadelphia (2026) — PhillyFinder",
+    "title":"The 25 Best Restaurants in Philadelphia (2026) — GuidePhilly",
     "meta":"From James Beard winners to tiny BYOs, our ranked guide to the 25 best restaurants in Philadelphia right now, updated for 2026.",
     "eyebrow":"Where to eat","h1":"The 25 Best Restaurants in Philadelphia",
     "dek":"From James Beard winners and Michelin stars to tiny BYOs, these are the tables defining Philadelphia dining right now.",
@@ -380,7 +389,7 @@ PAGES = [
     "crumbs":[("Home","/"),("Restaurants",None)],
     "related":("The 10 Best Cheesesteaks in Philadelphia","/restaurants/best-cheesesteaks-philadelphia.html","See the ranking")}),
   (cheesesteaks, "restaurants/best-cheesesteaks-philadelphia.html", {
-    "title":"The 10 Best Cheesesteaks in Philadelphia (2026) — PhillyFinder",
+    "title":"The 10 Best Cheesesteaks in Philadelphia (2026) — GuidePhilly",
     "meta":"From John's Roast Pork to Pat's, Geno's and Tony Luke's, our ranked guide to the best cheesesteaks in Philadelphia, updated for 2026.",
     "eyebrow":"The Philly essential","h1":"The 10 Best Cheesesteaks in Philadelphia",
     "dek":"Whiz or provolone, wit or witout — here's where to get the city's greatest cheesesteak, from old-school legends to modern upstarts.",
@@ -388,7 +397,7 @@ PAGES = [
     "crumbs":[("Home","/"),("Restaurants","/restaurants/best-restaurants-philadelphia.html"),("Best Cheesesteaks",None)],
     "related":("The 25 Best Restaurants in Philadelphia","/restaurants/best-restaurants-philadelphia.html","See the full guide")}),
   (fishtown, "neighborhoods/best-restaurants-fishtown.html", {
-    "title":"The Best Restaurants in Fishtown, Philadelphia (2026) — PhillyFinder",
+    "title":"The Best Restaurants in Fishtown, Philadelphia (2026) — GuidePhilly",
     "meta":"Kalaya, Laser Wolf, Suraya and more — the best restaurants in Philadelphia's Fishtown neighborhood, updated for 2026.",
     "eyebrow":"Neighborhood guide","h1":"The Best Restaurants in Fishtown",
     "dek":"Philadelphia's buzziest food neighborhood, from a James Beard-winning Thai flagship to live-fire grills and destination pizza.",
@@ -396,7 +405,7 @@ PAGES = [
     "crumbs":[("Home","/"),("Neighborhoods","/neighborhoods/"),("Fishtown",None)],
     "related":("The 25 Best Restaurants in Philadelphia","/restaurants/best-restaurants-philadelphia.html","See the citywide guide")}),
   (things, "things-to-do/best-things-to-do-philadelphia.html", {
-    "title":"The Best Things to Do in Philadelphia (2026) — PhillyFinder",
+    "title":"The Best Things to Do in Philadelphia (2026) — GuidePhilly",
     "meta":"Liberty Bell, Reading Terminal Market, the Rocky Steps and more — the best things to do and top attractions in Philadelphia, updated for 2026.",
     "eyebrow":"What to do","h1":"The Best Things to Do in Philadelphia",
     "dek":"Founding-era history, world-class museums, great markets and one-of-a-kind experiences — the essential Philadelphia checklist.",
@@ -404,7 +413,7 @@ PAGES = [
     "crumbs":[("Home","/"),("Things to Do",None)],
     "related":("The Best Parks in Philadelphia","/things-to-do/best-parks-philadelphia.html","Explore the parks")}),
   (parks, "things-to-do/best-parks-philadelphia.html", {
-    "title":"The Best Parks in Philadelphia (2026) — PhillyFinder",
+    "title":"The Best Parks in Philadelphia (2026) — GuidePhilly",
     "meta":"Fairmount Park, the Wissahickon, Spruce Street Harbor Park and more — the best parks and green spaces in Philadelphia.",
     "eyebrow":"Get outside","h1":"The Best Parks in Philadelphia",
     "dek":"From a 2,000-acre riverside wilderness to hammock-strung waterfront pop-ups, Philly's green spaces are some of the best in any big city.",
@@ -412,7 +421,7 @@ PAGES = [
     "crumbs":[("Home","/"),("Things to Do","/things-to-do/best-things-to-do-philadelphia.html"),("Best Parks",None)],
     "related":("The Best Things to Do in Philadelphia","/things-to-do/best-things-to-do-philadelphia.html","See all attractions")}),
   (museums, "arts-culture/best-museums-philadelphia.html", {
-    "title":"The Best Museums in Philadelphia (2026) — PhillyFinder",
+    "title":"The Best Museums in Philadelphia (2026) — GuidePhilly",
     "meta":"The Philadelphia Museum of Art, Barnes Foundation, Franklin Institute, Mutter Museum and more — the best museums in Philadelphia.",
     "eyebrow":"Arts & culture","h1":"The Best Museums in Philadelphia",
     "dek":"World-class art, hands-on science, medical oddities and founding-era history — Philadelphia is one of America's great museum cities.",
@@ -420,7 +429,7 @@ PAGES = [
     "crumbs":[("Home","/"),("Arts & Culture",None)],
     "related":("Theater & Live Music in Philadelphia","/arts-culture/theater-and-live-music-philadelphia.html","See music & theater")}),
   (venues, "arts-culture/theater-and-live-music-philadelphia.html", {
-    "title":"The Best Theater & Live Music Venues in Philadelphia (2026) — PhillyFinder",
+    "title":"The Best Theater & Live Music Venues in Philadelphia (2026) — GuidePhilly",
     "meta":"The Kimmel Center, Academy of Music, Union Transfer, the Fillmore and more — the best concert halls, theaters and live music venues in Philadelphia.",
     "eyebrow":"Arts & culture","h1":"Theater & Live Music in Philadelphia",
     "dek":"From the home of the Philadelphia Orchestra to intimate Fishtown clubs, here's where to catch a show in Philly.",
@@ -428,7 +437,7 @@ PAGES = [
     "crumbs":[("Home","/"),("Arts & Culture","/arts-culture/best-museums-philadelphia.html"),("Theater & Live Music",None)],
     "related":("The Best Museums in Philadelphia","/arts-culture/best-museums-philadelphia.html","See the museums")}),
   (daytrips, "day-trips/best-day-trips-from-philadelphia.html", {
-    "title":"The Best Day Trips from Philadelphia (2026) — PhillyFinder",
+    "title":"The Best Day Trips from Philadelphia (2026) — GuidePhilly",
     "meta":"New Hope, Longwood Gardens, Cape May, Lancaster and more — the best day trips within two hours of Philadelphia.",
     "eyebrow":"Get out of town","h1":"The Best Day Trips from Philadelphia",
     "dek":"Beaches, gardens, mountains and Amish country — all within about two hours of the city.",
@@ -450,6 +459,7 @@ HERO_MAP = {
 print("Building listicle pages...")
 for items, out, cfg in PAGES:
     cfg["hero"] = HERO_MAP.get(out)
+    cfg["canonical"] = canon(out)
     write(out, render_listicle(cfg, items))
 
 NEIGHBORHOODS = [
@@ -483,7 +493,8 @@ for name, slug, dfile, dek, introline in NEIGHBORHOODS:
     n_items = load(dfile)
     n_cfg = {
       "hero": f"hood-{slug}",
-      "title": f"The Best Restaurants in {name}, Philadelphia (2026) - PhillyFinder",
+      "canonical": canon(f"neighborhoods/best-restaurants-{slug}.html"),
+      "title": f"The Best Restaurants in {name}, Philadelphia (2026) - GuidePhilly",
       "meta": f"A curated, updated 2026 guide to the best restaurants in {name}, Philadelphia - where to eat and what to order.",
       "eyebrow": "Neighborhood guide",
       "h1": f"The Best Restaurants in {name}",
@@ -516,9 +527,9 @@ hub_hero = HEROES.get("neighborhoods")
 hub_hero_style = (f"background-image:linear-gradient(rgba(20,16,12,.58),rgba(20,16,12,.72)), url('{hub_hero}')"
                   if hub_hero else "")
 hub_body = HEAD.format(
-    title="Philadelphia Neighborhoods Guide - PhillyFinder",
+    title="Philadelphia Neighborhoods Guide - GuidePhilly",
     meta="A guide to Philadelphia's neighborhoods, from buzzy Fishtown to historic Old City and the Italian Market of South Philly.",
-    css=CSS + GRAD_CSS) + f'''{NAV}
+    css=CSS + GRAD_CSS, canonical="https://guidephilly.com/neighborhoods/") + f'''{NAV}
 <div class="pagehero" style="{hub_hero_style}">
   <div class="narrow">
     {crumbs_html([("Home","/"),("Neighborhoods",None)])}
@@ -541,7 +552,7 @@ write("neighborhoods/index.html", hub_body)
 # ---- Static pages ----
 print("Building info pages...")
 about_body = """
-<p>PhillyFinder is an independent, locally-minded guide to the best of Philadelphia &mdash; the restaurants worth crossing town for, the museums and attractions worth your afternoon, the parks locals actually use, and the neighborhoods that give the city its character.</p>
+<p>GuidePhilly is an independent, locally-minded guide to the best of Philadelphia &mdash; the restaurants worth crossing town for, the museums and attractions worth your afternoon, the parks locals actually use, and the neighborhoods that give the city its character.</p>
 <h2>What we do</h2>
 <p>We cut through the noise. Instead of endless listings, we publish focused, ranked guides to the things that matter most: where to eat, what to see, and how to spend a great day in Philadelphia. Every guide is researched, curated, and kept up to date.</p>
 <h2>How we choose</h2>
@@ -550,8 +561,8 @@ about_body = """
 <p>Spot something out of date, or think we missed a gem? We'd love to hear it &mdash; head to our <a href="/contact.html">contact page</a> and let us know.</p>
 """
 write("about.html", render_static(
-    "About PhillyFinder","About PhillyFinder, an independent local guide to the best restaurants and things to do in Philadelphia.",
-    "About","About PhillyFinder",[("Home","/"),("About",None)], about_body))
+    "About GuidePhilly","About GuidePhilly, an independent local guide to the best restaurants and things to do in Philadelphia.",
+    "About","About GuidePhilly",[("Home","/"),("About",None)], about_body, canon("about.html")))
 
 contact_body = """
 <p>We'd love to hear from you &mdash; whether you have a correction, a suggestion for a spot we should cover, or a question about the site.</p>
@@ -566,11 +577,11 @@ contact_body = """
 <p style="margin-top:18px;font-size:14px;color:var(--muted)">For advertising and partnership inquiries, see our <a href="/advertise.html">advertise page</a>.</p>
 """
 write("contact.html", render_static(
-    "Contact PhillyFinder","Get in touch with PhillyFinder to suggest a place, send a correction, or ask about advertising.",
-    "Contact","Contact Us",[("Home","/"),("Contact",None)], contact_body))
+    "Contact GuidePhilly","Get in touch with GuidePhilly to suggest a place, send a correction, or ask about advertising.",
+    "Contact","Contact Us",[("Home","/"),("Contact",None)], contact_body, canon("contact.html")))
 
 advertise_body = """
-<p>PhillyFinder reaches people at the exact moment they're deciding where to eat, what to see, and how to spend their time in Philadelphia &mdash; a high-intent local and visitor audience.</p>
+<p>GuidePhilly reaches people at the exact moment they're deciding where to eat, what to see, and how to spend their time in Philadelphia &mdash; a high-intent local and visitor audience.</p>
 <h2>Partner with us</h2>
 <p>We offer a limited number of tasteful advertising and sponsorship placements across the site. If you're a restaurant, attraction, or brand looking to reach engaged Philadelphia audiences, we'd like to talk.</p>
 <h2>What we offer</h2>
@@ -582,12 +593,12 @@ advertise_body = """
 <p>To start a conversation, reach out through our <a href="/contact.html">contact page</a> and mention advertising.</p>
 """
 write("advertise.html", render_static(
-    "Advertise with PhillyFinder","Advertise with PhillyFinder and reach a high-intent Philadelphia local and visitor audience.",
-    "Advertise","Advertise With Us",[("Home","/"),("Advertise",None)], advertise_body))
+    "Advertise with GuidePhilly","Advertise with GuidePhilly and reach a high-intent Philadelphia local and visitor audience.",
+    "Advertise","Advertise With Us",[("Home","/"),("Advertise",None)], advertise_body, canon("advertise.html")))
 
 privacy_body = """
 <p><em>Last updated: July 2026.</em></p>
-<p>This Privacy Policy explains how PhillyFinder ("we", "us") handles information when you visit our website. By using the site, you agree to the practices described here.</p>
+<p>This Privacy Policy explains how GuidePhilly ("we", "us") handles information when you visit our website. By using the site, you agree to the practices described here.</p>
 <h2>Information we collect</h2>
 <p>We do not require you to create an account or provide personal information to read our guides. If you contact us or submit a form, we collect only the information you choose to share, such as your name, email, and message.</p>
 <h2>Cookies and analytics</h2>
@@ -602,7 +613,7 @@ privacy_body = """
 <p>Questions about this policy? Reach us through our <a href="/contact.html">contact page</a>.</p>
 """
 write("privacy.html", render_static(
-    "Privacy Policy — PhillyFinder","PhillyFinder's privacy policy: how we handle cookies, analytics, and third-party advertising.",
-    "Legal","Privacy Policy",[("Home","/"),("Privacy",None)], privacy_body))
+    "Privacy Policy — GuidePhilly","GuidePhilly's privacy policy: how we handle cookies, analytics, and third-party advertising.",
+    "Legal","Privacy Policy",[("Home","/"),("Privacy",None)], privacy_body, canon("privacy.html")))
 
 print("Done.")
