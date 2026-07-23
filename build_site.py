@@ -350,14 +350,58 @@ print("Building listicle pages...")
 for items, out, cfg in PAGES:
     write(out, render_listicle(cfg, items))
 
+NEIGHBORHOODS = [
+  ("Rittenhouse","rittenhouse","hood-rittenhouse.json",
+   "Philadelphia's most elegant square, ringed by brasseries, fine dining, and buzzy hotel restaurants.",
+   "Rittenhouse Square sits at the center of Philadelphia's most polished dining district, where sidewalk brasseries, hotel dining rooms, and several of the city's best fine-dining tables cluster within a few blocks."),
+  ("East Passyunk","east-passyunk","hood-east-passyunk.json",
+   "South Philly's foodie playground: a restaurant row of Filipino, Italian, and inventive BYOs.",
+   "Few streets in Philadelphia pack more great restaurants per block than East Passyunk Avenue, a South Philly strip that runs from century-old Italian to award-winning Filipino and Vietnamese."),
+  ("Old City","old-city","hood-old-city.json",
+   "Historic cobblestone blocks packed with tapas, sushi, and Stephen Starr landmarks.",
+   "Philadelphia's most historic quarter is also a serious dining destination, where founding-era cobblestones lead to buzzy tapas houses, omakase counters, and theatrical Stephen Starr rooms."),
+  ("Northern Liberties","northern-liberties","hood-northern-liberties.json",
+   "A trendy, walkable district of vegan fine dining, brunch spots, and global flavors.",
+   "Once industrial and now one of the city's trendiest neighborhoods, Northern Liberties has become a magnet for ambitious restaurants, from nationally praised vegan cooking to packed brunch spots and global BYOs."),
+  ("Manayunk","manayunk","hood-manayunk.json",
+   "Main Street's hillside strip of gastropubs, breweries, and easygoing neighborhood spots.",
+   "Manayunk's Main Street hugs the Schuylkill with a walkable strip of gastropubs, a riverside brewery, and easygoing neighborhood restaurants that are perfect after a day on the towpath."),
+  ("Fairmount","fairmount","hood-fairmount.json",
+   "The Art Museum area's mix of Italian standouts, cozy BYOs, and neighborhood gems.",
+   "Just behind the Art Museum, Fairmount pairs a laid-back residential feel with a surprisingly deep dining bench, from destination Italian to cozy BYOs and reliable neighborhood taverns."),
+  ("University City","university-city","hood-university-city.json",
+   "Eclectic dining around Penn and Drexel, from farm-to-table to standout dumplings.",
+   "Anchored by Penn and Drexel, University City serves a global, student-and-professor-friendly mix, from a pioneering farm-to-table cafe to some of the city's best dumplings and ramen."),
+  ("Bella Vista","bella-vista","hood-bella-vista.json",
+   "The Italian Market's home turf of century-old red-sauce icons and modern Mexican.",
+   "Home to the 9th Street Italian Market, Bella Vista is where Philadelphia's red-sauce heritage lives on, alongside a new wave of acclaimed Mexican kitchens and a Vetri pasta bar."),
+]
+print("Building neighborhood pages...")
+for name, slug, dfile, dek, introline in NEIGHBORHOODS:
+    n_items = load(dfile)
+    n_cfg = {
+      "title": f"The Best Restaurants in {name}, Philadelphia (2026) - PhillyFinder",
+      "meta": f"A curated, updated 2026 guide to the best restaurants in {name}, Philadelphia - where to eat and what to order.",
+      "eyebrow": "Neighborhood guide",
+      "h1": f"The Best Restaurants in {name}",
+      "dek": dek,
+      "intro": [introline, f"Here are the best restaurants in {name} right now."],
+      "crumbs": [("Home","/"),("Neighborhoods","/neighborhoods/"),(name,None)],
+      "related": ("The 25 Best Restaurants in Philadelphia","/restaurants/best-restaurants-philadelphia.html","See the citywide guide"),
+    }
+    write(f"neighborhoods/best-restaurants-{slug}.html", render_listicle(n_cfg, n_items))
+
 # ---- Neighborhoods hub ----
 HOODS = [
   ("Fishtown","g1","Buzzy converted factories and the city's most exciting new restaurants.","/neighborhoods/best-restaurants-fishtown.html"),
-  ("Center City","g2","The dense downtown core — fine dining, museums and the Avenue of the Arts.","/restaurants/best-restaurants-philadelphia.html"),
-  ("South Philly","g3","Cheesesteak corners, the Italian Market and East Passyunk's restaurant row.","/restaurants/best-cheesesteaks-philadelphia.html"),
-  ("Rittenhouse","g4","Philly's most elegant square, ringed by upscale restaurants and cafes.","/restaurants/best-restaurants-philadelphia.html"),
-  ("Old City","g5","Cobblestone streets, founding-era history and the historic district.","/things-to-do/best-things-to-do-philadelphia.html"),
-  ("Fairmount","g6","Art-museum country, Eastern State Penitentiary and neighborhood gems.","/things-to-do/best-things-to-do-philadelphia.html"),
+  ("Rittenhouse","g4","Elegant square ringed by brasseries and fine dining.","/neighborhoods/best-restaurants-rittenhouse.html"),
+  ("East Passyunk","g2","South Philly's foodie playground and restaurant row.","/neighborhoods/best-restaurants-east-passyunk.html"),
+  ("Old City","g5","Historic cobblestones, tapas, sushi, and landmarks.","/neighborhoods/best-restaurants-old-city.html"),
+  ("Northern Liberties","g6","Trendy, walkable global dining and brunch.","/neighborhoods/best-restaurants-northern-liberties.html"),
+  ("Manayunk","g3","Main Street gastropubs, breweries, and river views.","/neighborhoods/best-restaurants-manayunk.html"),
+  ("Fairmount","g1","Art Museum-area Italian, BYOs, and gems.","/neighborhoods/best-restaurants-fairmount.html"),
+  ("University City","g5","Eclectic dining around Penn and Drexel.","/neighborhoods/best-restaurants-university-city.html"),
+  ("Bella Vista","g2","Italian Market icons and modern Mexican.","/neighborhoods/best-restaurants-bella-vista.html"),
 ]
 hub_cards = "".join(
   f'''<a class="hubcard" href="{href}"><div class="top {g}">{esc(name)}</div><div class="bot"><p>{esc(desc)}</p><span class="go">Explore &rarr;</span></div></a>'''
