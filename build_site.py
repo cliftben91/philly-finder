@@ -21,6 +21,7 @@ parks = load("parks.json")
 museums = load("museums.json")
 venues = load("arts-venues.json")
 daytrips = load("day-trips.json")
+tours = load("tours.json")
 HEROES = load("img-heroes.json")
 LANDMARKS = load("img-landmarks.json")
 CUISINES = load("img-cuisines.json")
@@ -47,6 +48,8 @@ def cuisine_bucket(c):
     return "New American"
 
 def item_image(item, idx):
+    if item.get("image"):
+        return item["image"]
     name = item.get("name", "")
     if LANDMARKS.get(name):
         return LANDMARKS[name]
@@ -59,6 +62,8 @@ def item_image(item, idx):
 WEBSITES = load("websites.json")
 
 def website_url(item):
+    if item.get("website"):
+        return item["website"]
     u = WEBSITES.get(item.get("name", ""))
     if u:
         return u
@@ -214,6 +219,7 @@ NAV = """
       <a href="/arts-culture/best-museums-philadelphia.html">Arts &amp; Culture</a>
       <a href="/neighborhoods/">Neighborhoods</a>
       <a href="/day-trips/best-day-trips-from-philadelphia.html">Day Trips</a>
+      <a href="/guides-tours/best-philadelphia-tours.html">Tours</a>
       <a class="nav-cta" href="/restaurants/best-restaurants-philadelphia.html">Explore Philly</a>
     </nav>
     <button class="menu-btn" aria-label="Menu">&#9776;</button>
@@ -239,7 +245,8 @@ FOOTER = """
         <li><a href="/things-to-do/best-parks-philadelphia.html">Best Parks</a></li>
         <li><a href="/arts-culture/best-museums-philadelphia.html">Museums</a></li>
         <li><a href="/arts-culture/theater-and-live-music-philadelphia.html">Theater &amp; Music</a></li>
-        <li><a href="/day-trips/best-day-trips-from-philadelphia.html">Day Trips</a></li></ul></div>
+        <li><a href="/day-trips/best-day-trips-from-philadelphia.html">Day Trips</a></li>
+        <li><a href="/guides-tours/best-philadelphia-tours.html">Guided Tours</a></li></ul></div>
       <div><h4>About</h4><ul>
         <li><a href="/about.html">Our Story</a></li>
         <li><a href="/contact.html">Contact</a></li>
@@ -306,7 +313,8 @@ def entry_html(i, item):
     img = item_image(item, i)
     imgtag = f'<img src="{img}" alt="{esc(item["name"])}" loading="lazy" onerror="this.style.display=&#39;none&#39;">' if img else ""
     phnote = "" if img else '<span class="ph-note">Photo</span>'
-    actions = f'<div class="actions"><a class="act" href="{site}" target="_blank" rel="noopener noreferrer">Visit website &#8599;</a><a class="act" href="{maps}" target="_blank" rel="noopener noreferrer">Get directions &#8599;</a></div>'
+    dir_act = f'<a class="act" href="{maps}" target="_blank" rel="noopener noreferrer">Get directions &#8599;</a>' if item.get("address") else ""
+    actions = f'<div class="actions"><a class="act" href="{site}" target="_blank" rel="noopener noreferrer">Visit website &#8599;</a>{dir_act}</div>'
     return f'''  <div class="entry">
     <div class="entry-head"><span class="rank">{i}</span><h2><a href="{site}" target="_blank" rel="noopener noreferrer">{esc(item["name"])}</a></h2></div>
     {tagline}
@@ -448,6 +456,14 @@ PAGES = [
     "intro":["One of the underrated perks of living in or visiting Philadelphia is how much sits within an easy drive: the Jersey Shore, world-class gardens, historic towns and mountain trails are all day-trip distance.","Here are the best places to escape for the day, no overnight bag required."],
     "crumbs":[("Home","/"),("Day Trips",None)],
     "related":("The Best Things to Do in Philadelphia","/things-to-do/best-things-to-do-philadelphia.html","Back to the city")}),
+  (tours, "guides-tours/best-philadelphia-tours.html", {
+    "title":"The Best Guided Tours in Philadelphia (2026) — GuidePhilly",
+    "meta":"Walking tours, food tours, ghost tours, bus and trolley tours, bike and Segway tours, river cruises and private guides — the best ways to tour Philadelphia, hand-picked for 2026.",
+    "eyebrow":"Guided Philly","h1":"The Best Guided Tours in Philadelphia",
+    "dek":"Want a real guide to the city? These are the walking, food, ghost, bus, bike, boat and private tours worth booking, from trusted local operators.",
+    "intro":["Sometimes the best way to see Philadelphia is with someone who knows it. Whether you want founding-era history, a tasting crawl through the Italian Market, a haunted night walk, or an easy hop-on bus to hit the highlights, the city has an excellent tour for it.","We've hand-picked reputable, currently-operating operators across every style of tour. Each links straight to the company's own site so you can check schedules and book directly."],
+    "crumbs":[("Home","/"),("Guided Tours",None)],
+    "related":("The Best Things to Do in Philadelphia","/things-to-do/best-things-to-do-philadelphia.html","See all attractions")}),
 ]
 
 HERO_MAP = {
@@ -459,6 +475,7 @@ HERO_MAP = {
   "arts-culture/best-museums-philadelphia.html":"museums",
   "arts-culture/theater-and-live-music-philadelphia.html":"theater-music",
   "day-trips/best-day-trips-from-philadelphia.html":"day-trips",
+  "guides-tours/best-philadelphia-tours.html":"tours",
 }
 print("Building listicle pages...")
 for items, out, cfg in PAGES:
